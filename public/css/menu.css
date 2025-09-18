@@ -16,31 +16,50 @@ body {
   background: rgba(0,0,0,0.5);
 }
 
-/* Contenedor de roles */
+/* Contenedor de roles, ahora con flexbox */
 .roles {
   flex: 1;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+  display: flex; /* Usamos flexbox para una mejor alineación horizontal */
+  justify-content: center; /* Centramos los elementos horizontalmente */
+  align-items: center; /* Centramos los elementos verticalmente */
   height: 100%;
+  gap: 50px; /* Agregamos un espacio entre los cuadros */
 }
 
 /* Cada cuadro (botón) */
 .cuadro {
   border: none;
-  background: rgba(0,0,0,0.6);
+  background: transparent; /* Fondo transparente */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: 0.3s;
-  width: 100%;
-  height: 100%;
+  width: 250px; /* Tamaño fijo para cada cuadro */
+  height: auto;
+  text-decoration: none; /* Quitamos el subrayado del enlace */
+  color: white; /* Color del texto blanco */
+  font-weight: bold;
 }
 
 .cuadro:hover {
   background: rgba(255,255,255,0.1);
   transform: scale(1.05);
+  border-radius: 10px; /* Agregamos un borde redondeado en hover */
+}
+
+/* Estilos específicos para cada rol */
+.rol-cliente .cuadro-titulo {
+  color: #f0c300; /* Color azul para Cliente */
+}
+
+.rol-repartidor .cuadro-titulo {
+  color: #1a649d; /* Color amarillo para Repartidor */
+}
+
+.rol-admin .cuadro-titulo {
+  color: #c40000; /* Color rojo para Administrador */
 }
 
 /* Imagen dentro del cuadro */
@@ -55,6 +74,14 @@ body {
 .cuadro-titulo {
   font-size: 22px;
   font-weight: bold;
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+  .roles {
+    flex-direction: column; /* Apilamos los cuadros verticalmente en móviles */
+    gap: 20px; /* Reducimos el espacio entre ellos */
+  }
 }
 
 
