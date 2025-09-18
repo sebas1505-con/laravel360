@@ -89,34 +89,15 @@ button:hover {
   padding: 12px 20px;
   border-radius: 8px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 800;
   text-decoration: none;
   color: #fff;
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* Estilos por tipo */
-.button-group .btn:nth-child(1) {
-  background: #3498db; /* azul usuario */
-}
-.button-group .btn:nth-child(1):hover {
-  background: #2980b9;
-}
 
-.button-group .btn:nth-child(2) {
-  background: #f00707; /* naranja admin */
-}
-.button-group .btn:nth-child(2):hover {
-  background: #d35400;
-}
 
-.button-group .btn:nth-child(3) {
-  background: #dee109; /* verde repartidor */
-}
-.button-group .btn:nth-child(3):hover {
-  background: #dbea0c;
-}
 
 
 

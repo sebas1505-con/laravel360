@@ -23,6 +23,7 @@ class Usuario extends Authenticatable
     ];
 
     protected $hidden = [
-        'password',
+        'contraseña',
+        'useCorreo'
     ];
 }

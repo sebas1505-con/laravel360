@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="icon" type="image/x-icon" href="images/Logo.png">
   <title>Productos - Deportes 360</title>
-  <link rel="stylesheet" href="{{ asset('css/Productos.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/productos.css') }}">
 </head>
 <body>
   <header class="header">

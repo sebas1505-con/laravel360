@@ -13,19 +13,19 @@
 
   <main class="roles">
     <!-- Cliente con enlace a login.html -->
-    <a href="login.html" class="cuadro rol-cliente">
+    <a href="{{('login')}}" class="cuadro rol-cliente">
       <img class="cuadro-img" src="images/cliente.png" alt="Icono Cliente">
       <span class="cuadro-titulo">Cliente</span>
     </a>
 
     <!-- Repartidor (aún sin enlace) -->
-    <a href="login2.html" class="cuadro rol-repartidor">
+    <a href="{{('login')}}" class="cuadro rol-repartidor">
       <img class="cuadro-img" src="images/repartidor.png" alt="Icono Repartidor">
       <span class="cuadro-titulo">Repartidor</span>
     </a>
 
     <!-- Administrador (aún sin enlace) -->
-    <a href="login3.html" class="cuadro rol-admin">
+    <a href="{{('login')}}" class="cuadro rol-admin">
       <img class="cuadro-img" src="images/admin.png" alt="Icono Administrador">
       <span class="cuadro-titulo">Administrador</span>
     </a>

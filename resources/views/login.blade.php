@@ -13,6 +13,8 @@
       <img class="logo" src="images/Logo.png" alt="Logo Deportes 360">
       <h2>Inicia sesión</h2>
     </div>
+  <a href="{{ url('/inicio') }}" class="btn-volver-home">Volver</a>
+
 
     <form class="login-form">
       <label for="usuario">Usuario:</label>
@@ -22,13 +24,8 @@
       <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
 
       <button type="submit">Iniciar sesión</button>   
+      <a href="{{ url('/registro/usuario') }}" class="btn-volver">¿Quieres Registrarte Con nosotros?</a>  
       <a href="#" class="recuperar">¿Olvidaste tu contraseña?</a>
-
-      <div class="button-group">
-        <a href="{{ url('/registro/usuario') }}" class="btn">Registrar Usuario</a>
-        <a href="{{ url('/registro/admin') }}" class="btn">Registrar Administrador</a>
-        <a href="{{ url('/registro/repartidor') }}" class="btn">Registrar Repartidor</a>
-      </div>
     </form>
   </div>
 </body>

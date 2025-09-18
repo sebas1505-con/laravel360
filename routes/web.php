@@ -47,7 +47,11 @@ Route::get('/sudadera', function () {
 })->name('producto-sudadera');
 Route::get('/top', function () {
     return view('producto-top');
+})->name('producto-top');
+Route::get('/productos', function () {
+    return view('productos');
 })->name('productos');
+
 
 
 // Rutas para los registros (usando el controlador)
