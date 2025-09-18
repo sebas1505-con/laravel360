@@ -51,6 +51,17 @@ Route::get('/top', function () {
 Route::get('/productos', function () {
     return view('productos');
 })->name('productos');
+Route::get('/Crear-Usuario', function () {
+    return view('Crear-Usuario');
+})->name('/Crear-usuario'); 
+Route::get('/Crear-Repartidor', function () {
+    return view('Crear-Repartidor');
+})->name('/Crear-Repartidor');
+Route::get('/Crear-Admin', function () {
+    return view('Crear-Admin');
+})->name('/Crear-Admin');
+
+
 
 
 

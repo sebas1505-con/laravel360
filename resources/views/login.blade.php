@@ -15,18 +15,18 @@
     </div>
   <a href="{{ url('/inicio') }}" class="btn-volver-home">Volver</a>
 
+<form class="login-form" action="{{ route('login') }}" method="POST">
+    @csrf
+    <label for="usuario">Usuario:</label>
+    <input type="text" id="usuario" name="usuario" placeholder="Correo electrónico" required>
 
-    <form class="login-form">
-      <label for="usuario">Usuario:</label>
-      <input type="text" id="usuario" name="usuario" placeholder="Correo electrónico" required>
+    <label for="contrasena">Contraseña:</label>
+    <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
 
-      <label for="contrasena">Contraseña:</label>
-      <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
-
-      <button type="submit">Iniciar sesión</button>   
-      <a href="{{ url('/registro/usuario') }}" class="btn-volver">¿Quieres Registrarte Con nosotros?</a>  
-      <a href="#" class="recuperar">¿Olvidaste tu contraseña?</a>
-    </form>
+    <button type="submit">Iniciar sesión</button>   
+    <a href="{{ url('/menu') }}" class="btn-volver">¿Quieres Registrarte Con nosotros?</a>  
+    <a href="#" class="recuperar">¿Olvidaste tu contraseña?</a>
+</form>
   </div>
 </body>
 </html>

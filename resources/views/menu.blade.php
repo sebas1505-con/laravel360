@@ -9,23 +9,24 @@
 <body>
   <header class="encabezado">
     <h1>Bienvenido a Deportes 360</h1>
+    <h3>Como te Quieres Registrar</h3>
   </header>
 
   <main class="roles">
     <!-- Cliente con enlace a login.html -->
-    <a href="{{('login')}}" class="cuadro rol-cliente">
+    <a href="{{('/Crear-Usuario')}}" class="cuadro rol-cliente">
       <img class="cuadro-img" src="images/cliente.png" alt="Icono Cliente">
       <span class="cuadro-titulo">Cliente</span>
     </a>
 
     <!-- Repartidor (aún sin enlace) -->
-    <a href="{{('login')}}" class="cuadro rol-repartidor">
+    <a href="{{('/Crear-Repartidor')}}" class="cuadro rol-repartidor">
       <img class="cuadro-img" src="images/repartidor.png" alt="Icono Repartidor">
       <span class="cuadro-titulo">Repartidor</span>
     </a>
 
     <!-- Administrador (aún sin enlace) -->
-    <a href="{{('login')}}" class="cuadro rol-admin">
+    <a href="{{('/Crear-Admin')}}" class="cuadro rol-admin">
       <img class="cuadro-img" src="images/admin.png" alt="Icono Administrador">
       <span class="cuadro-titulo">Administrador</span>
     </a>

@@ -23,9 +23,9 @@
         </label>
         <nav class="navbar">
           <ul>
-            <li><a href="index.php">Inicio</a></li>
-            <li><a href="menu.php">Catálogo</a></li>
-            <li><a href="login.php">Iniciar sesión</a></li>         
+            <li><a href="{{'/'}}">Inicio</a></li>
+            <li><a href="{{'/menu'}}">Catálogo</a></li>
+            <li><a href="{{'/login'}}">Iniciar sesión</a></li>         
           </ul>
         </nav>
       </div>
@@ -37,7 +37,7 @@
         <div class="hero-text">
             <h1>CELEBRA CADA MOVIMIENTO</h1>
             <p>TECNOLOGÍA, COMODIDAD Y ESTILO PARA CADA DÍA.</p>
-            <a href="menu.php" class="btn-2">EQUÍPATE HOY</a>
+            <a href="menu.php" class="btn-2">Compra Ya</a>
         </div>
         <div class="hero-image">
              <img src="images/atleta-hero.png" alt="Atleta saltando" />
