@@ -1,0 +1,165 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.header {
+  background-color: #000;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.sidebar {
+  background-color: #222;
+  width: 200px;
+  height: 100vh;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  padding-top: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 10px 20px;
+  transition: background 0.3s;
+}
+
+.sidebar ul li a:hover {
+  background-color: #c62828; /* rojo oscuro */
+}
+
+.dashboard {
+  margin-left: 220px;
+  padding: 20px;
+}
+
+.stats {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-box {
+  background-color: white;
+  flex: 1;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+
+.stat-box h3 {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.stat-box p {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #c62828;
+}
+
+.grafico-contenedor {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#graficaVentas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.pedidos {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+}
+
+.tabla-pedidos {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.tabla-pedidos th, .tabla-pedidos td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.tabla-pedidos th {
+  background-color: #c62828;
+  color: white;
+}
+
+.tabla-pedidos tr:hover {
+  background-color: #f9f9f9;
+}
+
+.inventario-visual {
+  margin: 40px 0;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.inventario-visual h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.inventario-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.producto-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.producto-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.producto-card h4 {
+  margin: 10px 0 5px;
+  color: #333;
+}
+
+.producto-card p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #555;
+}
+

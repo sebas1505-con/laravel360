@@ -1,0 +1,40 @@
+body {
+  background-color: #fff9f3;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 50px;
+}
+
+.error-container {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.error-container h1 {
+  font-size: 60px;
+  color: #e60000;
+  margin-bottom: 10px;
+}
+
+.error-container p {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.btn-volver {
+  text-decoration: none;
+  color: white;
+  background-color: #cc0000;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.btn-volver:hover {
+  background-color: #cc0000;
+}

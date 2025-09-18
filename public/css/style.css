@@ -1,0 +1,123 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: url("../images/Fondo.png") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 25px rgba(0,0,0,0.3);
+  max-width: 350px;
+  width: 100%;
+  text-align: center;
+}
+
+.login-header .logo {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.login-header h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  text-align: left;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #444;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+}
+
+button {
+  background: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+.btn-volver, .recuperar {
+  display: block;
+  margin-top: 10px;
+  text-decoration: none;
+  font-size: 14px;
+  color: #007bff;
+}
+
+.btn-volver:hover, .recuperar:hover {
+  text-decoration: underline;
+}
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* espacio entre botones */
+  margin-top: 20px;
+}
+
+.button-group .btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Estilos por tipo */
+.button-group .btn:nth-child(1) {
+  background: #3498db; /* azul usuario */
+}
+.button-group .btn:nth-child(1):hover {
+  background: #2980b9;
+}
+
+.button-group .btn:nth-child(2) {
+  background: #f00707; /* naranja admin */
+}
+.button-group .btn:nth-child(2):hover {
+  background: #d35400;
+}
+
+.button-group .btn:nth-child(3) {
+  background: #dee109; /* verde repartidor */
+}
+.button-group .btn:nth-child(3):hover {
+  background: #dbea0c;
+}
+
+
+
+
