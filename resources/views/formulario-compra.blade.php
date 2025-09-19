@@ -40,7 +40,7 @@
       e.preventDefault();
       alert("✅ ¡Compra realizada con éxito! Gracias por tu pedido.");
       localStorage.removeItem("carrito");
-      window.location.href = "usuario.html";
+      window.location.href = "{{'/usuario'}}";
     });
   </script>
 </body>

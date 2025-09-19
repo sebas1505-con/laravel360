@@ -1,17 +1,16 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistroController;
+use Illuminate\Container\Attributes\Auth;
 
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/inicio', function () {
-    return view('inicio'); 
+Route::get('/welcome', function () {
+    return view('welcome'); 
 });
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
 Route::get('/menu', function () {
     return view('menu'); 
 });
@@ -61,14 +60,12 @@ Route::get('/Crear-Admin', function () {
     return view('Crear-Admin');
 })->name('/Crear-Admin');
 
-
-
-
-
-// Rutas para los registros (usando el controlador)
-Route::get('/registro/usuario', [RegistroController::class, 'usuario']);
-Route::get('/registro/admin', [RegistroController::class, 'admin']);
-Route::get('/registro/repartidor', [RegistroController::class, 'repartidor']);
-Route::get('/crear-cuenta', [RegistroController::class, 'seleccionar']);
+Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
+// Login
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+// (cerrar sesión)
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 

@@ -17,10 +17,10 @@
 
     <div class="card">
       <nav>
-        <a class="btn" href="usuario.html">Inicio</a>
+        <a class="btn" href="{{'/usuario'}}">Inicio</a>
         <a class="btn" href="pedidos.html">Pedidos Pendientes</a>
         <a class="btn" href="#">Historial de Entregas</a>
-        <a class="btn" href="login.html">Cerrar Sesión</a>
+        <a class="btn" href="{{'/login'}}">Cerrar Sesión</a>
       </nav>
     </div>
 

@@ -88,7 +88,7 @@
     <div class="container footer-content">
       <a href="#" class="logo">DEPORTES 360</a>
       <ul>
-        <li><a href="#">Inicio</a></li>
+        <li><a href="{{'welcome'}}">Inicio</a></li>
         <li><a href="#">Productos</a></li>
         <li><a href="#">Contacto</a></li>
       </ul>

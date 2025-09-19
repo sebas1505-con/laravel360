@@ -10,7 +10,7 @@
 <body>
   <header class="header">
     <div class="container menu">
-      <a href="usuario.html" class="logo">Deportes 360</a>
+      <a href="{{'/usuario'}}" class="logo">Deportes 360</a>
       <nav class="navbar">
         <ul>
           <li><a href="usuario.html">Inicio</a></li>

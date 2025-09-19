@@ -19,10 +19,10 @@
         </label>
         <nav class="navbar">
           <ul>
-            <li><a href="{{'inicio'}}">Inicio</a></li>
+            <li><a href="{{'welcome'}}">Inicio</a></li>
             <li><a href="{{'productos'}}">Catálogo</a></li>
             <li><a href="{{'sugerencias'}}">sugerencia</a></li>
-            <li><a href="{{'inicio'}}">Cerrar Sesión</a></li>					
+            <li><a href="{{'welcome'}}">Cerrar Sesión</a></li>					
           </ul>
         </nav>
 

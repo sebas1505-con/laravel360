@@ -13,23 +13,32 @@
       <img class="logo" src="images/Logo.png" alt="Logo Deportes 360">
       <h2>Inicia sesión</h2>
     </div>
-  <a href="{{ url('/inicio') }}" class="btn-volver-home">Volver</a>
+  <a href="{{ url('/welcome') }}" class="btn-volver-home">Volver</a>
 
 <form class="login-form" action="{{ route('login') }}" method="POST">
     @csrf
-    <label for="usuario">Usuario:</label>
-    <input type="text" id="usuario" name="usuario" placeholder="Correo electrónico" required>
+    @if ($errors->any())
+      <div class="error">
+          {{ $errors->first() }}
+      </div>
+    @endif
 
-    <label for="contrasena">Contraseña:</label>
-    <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
+    <label for="email">Correo electrónico:</label>
+    <input type="email" id="email" name="email" placeholder="Ingresa tu correo" required>
+
+    <label for="password">Contraseña:</label>
+    <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+
 
     <button type="submit">Iniciar sesión</button>   
-    <a href="{{ url('/menu') }}" class="btn-volver">¿Quieres Registrarte Con nosotros?</a>  
+    <a href="{{ url('/menu') }}" class="btn-volver">¿Quieres registrarte con nosotros?</a>  
     <a href="#" class="recuperar">¿Olvidaste tu contraseña?</a>
 </form>
+
   </div>
 </body>
 </html>
+
 
 
 

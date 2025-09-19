@@ -9,7 +9,6 @@
 <body>
   <header class="encabezado">
     <h1>Bienvenido a Deportes 360</h1>
-    <h3>Como te Quieres Registrar</h3>
   </header>
 
   <main class="roles">
@@ -28,7 +27,7 @@
     <!-- Administrador (aún sin enlace) -->
     <a href="{{('/Crear-Admin')}}" class="cuadro rol-admin">
       <img class="cuadro-img" src="images/admin.png" alt="Icono Administrador">
-      <span class="cuadro-titulo">Administrador</span>
+      <span class="cuadro-titulo">Emprendedor</span>
     </a>
   </main>
 </body>
