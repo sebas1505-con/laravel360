@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('fecha_nacimiento');
             $table->string('Barrio');
             $table->string('useTelefono', 20);
-            $table->string('email');
+            $table->string('useCorreo')->unique();
             $table->string('Username');
             $table->string('password');
             $table->timestamps();

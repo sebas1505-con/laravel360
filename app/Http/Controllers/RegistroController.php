@@ -7,43 +7,75 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Usuario;
 use Illuminate\Support\Facades\Hash;
 
-class AuthController extends Controller
+
+class registroController extends Controller
 {
     public function showRegisterForm()
     {
         return view('crear-Usuario'); 
     }
 
-
+    //  Registrar usuario
     public function register(Request $request)
     {
-     $request->validate([
+   $request->validate([
     'name' => 'required|string|max:255',
-    'email' => 'required|email|unique:usuarios,email',
-    'username' => 'required|string|max:255|unique:usuarios,username',
-    'password' => 'required|string|min:6|confirmed',
-    'telefono' => 'nullable|string|max:20',
-    'direccion' => 'nullable|string|max:255',
-    'fecha' => 'nullable|date',
+    'useCorreo'         => 'required|email|unique:usuarios,useCorreo',
+    'Username'          => 'required|string|max:255|unique:usuarios,Username',
+    'password'          => 'required|string|min:6|confirmed',
+    'useTelefono'       => 'nullable|string|max:20',
+    'Direccion'         => 'nullable|string|max:255',
+    'fecha_nacimiento'  => 'nullable|date',
+    'Barrio'            => 'nullable|string|max:255',
 ]);
 
 
-     $user = Usuario::create([
+
+   Usuario::create([
     'name' => $request->name,
-    'email' => $request->email,
-    'username' => $request->username,
+    'useCorreo' => $request->useCorreo,
+    'Username' => $request->Username,
     'password' => Hash::make($request->password),
-    'telefono' => $request->telefono,
-    'direccion' => $request->direccion,
-    'fecha_nacimiento' => $request->fecha,
+    'useTelefono' => $request->useTelefono,
+    'Direccion' => $request->Direccion,
+    'fecha_nacimiento' => $request->fecha_nacimiento,
+    'Barrio' => $request->Barrio,
 ]);
 
+return redirect()->route('/login')->with('success', 'Usuario registrado correctamente');
+        
+    }
 
-        Auth::login($user);
+    public function showLoginForm()
+    {
+        return view('/login'); 
+    }
 
-        return redirect('/dashboard'); 
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'email'  => 'required|email',
+            'password' => 'required|string',
+        ]);
+
+        $user = Usuario::where('UseCorre', $credentials['email'])->first();
+
+        if ($user && Hash::check($credentials['password'], $user->contrasena)) {
+            Auth::login($user);
+            return redirect('/dashboard')->with('success', 'Bienvenido ' . $user->UseNombre);
+        }
+
+        return back()->withErrors([
+            'email' => 'Las credenciales no son correctas.',
+        ]);
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/login')->with('success', 'Sesión cerrada correctamente.');
     }
 }
-
-
-

@@ -17,6 +17,13 @@
 
 <form class="login-form" action="{{ route('login') }}" method="POST">
     @csrf
+
+    @if(session('success'))
+        <div class="success-message" style="background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-bottom: 15px;">
+            {{ session('success') }}
+        </div>
+    @endif
+
     @if ($errors->any())
       <div class="error">
           {{ $errors->first() }}
@@ -29,11 +36,11 @@
     <label for="password">Contraseña:</label>
     <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
 
-
     <button type="submit">Iniciar sesión</button>   
     <a href="{{ url('/menu') }}" class="btn-volver">¿Quieres registrarte con nosotros?</a>  
     <a href="#" class="recuperar">¿Olvidaste tu contraseña?</a>
 </form>
+
 
   </div>
 </body>

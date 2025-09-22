@@ -1,12 +1,11 @@
 <?php
 
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\registroController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RegistroController;
 use Illuminate\Container\Attributes\Auth;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome'); 
 });
 Route::get('/welcome', function () {
     return view('welcome'); 
@@ -60,12 +59,12 @@ Route::get('/Crear-Admin', function () {
     return view('Crear-Admin');
 })->name('/Crear-Admin');
 
-Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
-Route::post('/register', [AuthController::class, 'register']);
+Route::get('/register', [RegistroController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [RegistroController::class, 'register']);
 // Login
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+Route::get('/login', [RegistroController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [RegistroController::class, 'login'])->name('login.post');
 // (cerrar sesión)
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/logout', [RegistroController::class, 'logout'])->name('logout');
 
 
