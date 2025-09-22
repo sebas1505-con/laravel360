@@ -38,7 +38,7 @@
 
     <button type="submit">Iniciar sesión</button>   
     <a href="{{ url('/menu') }}" class="btn-volver">¿Quieres registrarte con nosotros?</a>  
-    <a href="#" class="recuperar">¿Olvidaste tu contraseña?</a>
+    
 </form>
 
 

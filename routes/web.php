@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\registroController;
+use App\Http\Controllers\RepartidorController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Container\Attributes\Auth;
 
@@ -59,12 +61,17 @@ Route::get('/Crear-Admin', function () {
     return view('Crear-Admin');
 })->name('/Crear-Admin');
 
+//usuario
 Route::get('/register', [RegistroController::class, 'showRegisterForm'])->name('register');
-Route::post('/register', [RegistroController::class, 'register']);
-// Login
-Route::get('/login', [RegistroController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [RegistroController::class, 'login'])->name('login.post');
-// (cerrar sesión)
-Route::post('/logout', [RegistroController::class, 'logout'])->name('logout');
+Route::post('/register', [RegistroController::class, 'store'])->name('register.store');
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+//repartidor
+Route::get('/register-repartidor', [RepartidorController::class, 'showRegisterForm'])->name('register.repartidor');
+Route::post('/register-repartidor', [RepartidorController::class, 'store'])->name('register.repartidor.store');
+Route::get('/login-repartidor', [RepartidorController::class, 'showLoginForm'])->name('login.repartidor');
+Route::post('/login-repartidor', [RepartidorController::class, 'login'])->name('login.repartidor.post');
+Route::post('/logout-repartidor', [RepartidorController::class, 'logout'])->name('logout.repartidor');
 

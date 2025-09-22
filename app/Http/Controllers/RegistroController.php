@@ -3,79 +3,42 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Models\Usuario;
 use Illuminate\Support\Facades\Hash;
 
-
-class registroController extends Controller
+class RegistroController extends Controller
 {
+    // Mostrar formulario de registro
     public function showRegisterForm()
     {
-        return view('crear-Usuario'); 
+        return view('crear-Usuario');
     }
 
-    //  Registrar usuario
-    public function register(Request $request)
+    // Guardar usuario en la base de datos
+    public function store(Request $request)
     {
-   $request->validate([
-    'name' => 'required|string|max:255',
-    'useCorreo'         => 'required|email|unique:usuarios,useCorreo',
-    'Username'          => 'required|string|max:255|unique:usuarios,Username',
-    'password'          => 'required|string|min:6|confirmed',
-    'useTelefono'       => 'nullable|string|max:20',
-    'Direccion'         => 'nullable|string|max:255',
-    'fecha_nacimiento'  => 'nullable|date',
-    'Barrio'            => 'nullable|string|max:255',
-]);
-
-
-
-   Usuario::create([
-    'name' => $request->name,
-    'useCorreo' => $request->useCorreo,
-    'Username' => $request->Username,
-    'password' => Hash::make($request->password),
-    'useTelefono' => $request->useTelefono,
-    'Direccion' => $request->Direccion,
-    'fecha_nacimiento' => $request->fecha_nacimiento,
-    'Barrio' => $request->Barrio,
-]);
-
-return redirect()->route('/login')->with('success', 'Usuario registrado correctamente');
-        
-    }
-
-    public function showLoginForm()
-    {
-        return view('/login'); 
-    }
-
-    public function login(Request $request)
-    {
-        $credentials = $request->validate([
-            'email'  => 'required|email',
-            'password' => 'required|string',
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'useCorreo' => 'required|email|unique:usuarios,useCorreo',
+            'Username' => 'required|string|max:50|unique:usuarios,Username',
+            'password' => 'required|string|min:6|confirmed',
+            'useTelefono' => 'nullable|string|max:20',
+            'Direccion' => 'nullable|string|max:255',
+            'fecha_nacimiento' => 'nullable|date',
+            'Barrio' => 'nullable|string|max:100',
         ]);
 
-        $user = Usuario::where('UseCorre', $credentials['email'])->first();
-
-        if ($user && Hash::check($credentials['password'], $user->contrasena)) {
-            Auth::login($user);
-            return redirect('/dashboard')->with('success', 'Bienvenido ' . $user->UseNombre);
-        }
-
-        return back()->withErrors([
-            'email' => 'Las credenciales no son correctas.',
+        Usuario::create([
+            'name' => $request->name,
+            'useCorreo' => $request->useCorreo,
+            'Username' => $request->Username,
+            'password' => bcrypt($request->password),
+            'useTelefono' => $request->useTelefono,
+            'Direccion' => $request->Direccion,
+            'fecha_nacimiento' => $request->fecha_nacimiento,
+            'Barrio' => $request->Barrio,
         ]);
-    }
 
-    public function logout(Request $request)
-    {
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return redirect('/login')->with('success', 'Sesión cerrada correctamente.');
+        return redirect('/login')->with('success', 'Registro exitoso. ¡Ahora puedes iniciar sesión!');
     }
 }

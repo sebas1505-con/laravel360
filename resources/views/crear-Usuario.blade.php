@@ -23,44 +23,41 @@
       </div>
     @endif
 
-    <form class="login-form" action="{{ url('/register') }}" method="POST">
+    <form class="login-form" action="{{ route('register.store') }}" method="POST">
       @csrf
 
-<label for="nombre">Nombre Completo</label>
-<input type="text" id="nombre" name="name" value="{{ old('name') }}" placeholder="Ingresa tu nombre completo">
+      <label for="nombre">Nombre Completo</label>
+      <input type="text" id="nombre" name="name" value="{{ old('name') }}" placeholder="Ingresa tu nombre completo" required>
 
-<label for="correo">Correo Electrónico</label>
-<input type="email" id="correo" name="useCorreo" value="{{ old('useCorreo') }}" placeholder="ejemplo@correo.com">
+      <label for="correo">Correo Electrónico</label>
+      <input type="email" id="correo" name="useCorreo" value="{{ old('useCorreo') }}" placeholder="ejemplo@correo.com" required>
 
-<label for="telefono">Teléfono</label>
-<input type="tel" id="telefono" name="useTelefono" value="{{ old('useTelefono') }}" placeholder="+57 300 000 0000">
+      <label for="usuario">Usuario</label>
+      <input type="text" id="usuario" name="Username" value="{{ old('Username') }}" placeholder="Crea tu usuario" required>
 
-<label for="direccion">Dirección</label>
-<input type="text" id="direccion" name="Direccion" value="{{ old('Direccion') }}" placeholder="Ingresa tu dirección">    
+      <label for="contrasena">Contraseña</label>
+      <input type="password" id="contrasena" name="password" placeholder="Crea una contraseña" required>
 
-<label for="fecha">Fecha de nacimiento</label>
-<input type="date" id="fecha" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') }}">
-  
-<label for="barrio">Barrio</label>
-<input type="text" id="barrio" name="Barrio" value="{{ old('Barrio') }}" placeholder="Ingresa tu barrio">
+      <label for="confirmar">Confirmar Contraseña</label>
+      <input type="password" id="confirmar" name="password_confirmation" placeholder="Repite tu contraseña" required>
 
-<label for="usuario">Usuario</label>
-<input type="text" id="usuario" name="Username" value="{{ old('Username') }}" placeholder="Crea tu usuario">
+      <label for="telefono">Teléfono</label>
+      <input type="tel" id="telefono" name="useTelefono" value="{{ old('useTelefono') }}" placeholder="+57 300 000 0000">
 
-<label for="contrasena">Contraseña</label>
-<input type="password" id="contrasena" name="password" placeholder="Crea una contraseña">
+      <label for="direccion">Dirección</label>
+      <input type="text" id="direccion" name="Direccion" value="{{ old('Direccion') }}" placeholder="Ingresa tu dirección">    
 
-<label for="confirmar">Confirmar Contraseña</label>
-<input type="password" id="confirmar" name="password_confirmation" placeholder="Repite tu contraseña">
+      <label for="fecha">Fecha de nacimiento</label>
+      <input type="date" id="fecha" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') }}">
 
-
+      <label for="barrio">Barrio</label>
+      <input type="text" id="barrio" name="Barrio" value="{{ old('Barrio') }}" placeholder="Ingresa tu barrio">
 
       <button type="submit">Registrarse</button>
     </form>
   </div>
 </body>
 </html>
-
 
 
 

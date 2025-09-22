@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('tipodevehi');
             $table->string('numplaca');
             $table->string('NombreRepar');
-            $table->string('usuCorreo');
+            $table->string('useCorreo');
             $table->string('Usuario');
             $table->string('contraseña');
             $table->foreignId('fk_id_usuario')->references('id')->on('usuarios')->onDelete('cascade');

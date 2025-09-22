@@ -2,9 +2,23 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class repartidor extends Model
+class Repartidor extends Authenticatable
 {
-    //
+    protected $table = 'repartidores';
+
+    protected $fillable = [
+        'NombreRepar',
+        'useCorreo',
+        'telefono',
+        'vehiculo',
+        'fecha_nacimiento',
+        'usuario',
+        'password',
+    ];
+
+    protected $hidden = [
+        'password',
+    ];
 }
