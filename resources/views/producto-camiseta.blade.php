@@ -14,7 +14,7 @@
       <nav class="navbar">
         <ul>
           <li><a href="{{'/usuario'}}">Inicio</a></li>
-          <li><a href="index.html#productos">Productos</a></li>
+          <li><a href="{{'/productos'}}">Productos</a></li>
           <li><a href="#">Contacto</a></li>
         </ul>
       </nav>
@@ -72,7 +72,7 @@
 
 
         <div style="margin-top: 20px;">
-          <a href="index.html" class="btn-1">Volver</a>
+          <a href="{{'/usuario'}}" class="btn-1">Volver</a>
           <button class="btn-1" style="margin-left: 10px;" onclick="agregarAlCarrito()">Comprar</button>
         </div>
       </div>

@@ -76,17 +76,31 @@ route::get('/inventario', function () {
     return view('inventario');
 })->name('inventario');
 
-//usuario
 Route::get('/register', [RegistroController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [RegistroController::class, 'store'])->name('register.store');
+Route::get('/register-repartidor', [RepartidorController::class, 'showRegisterForm'])->name('register.repartidor');
+Route::post('/register-repartidor', [RepartidorController::class, 'store'])->name('register.repartidor.store');
+
+
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-//repartidor
-Route::get('/register-repartidor', [RepartidorController::class, 'showRegisterForm'])->name('register.repartidor');
-Route::post('/register-repartidor', [RepartidorController::class, 'store'])->name('register.repartidor.store');
-Route::get('/login-repartidor', [RepartidorController::class, 'showLoginForm'])->name('login.repartidor');
-Route::post('/login-repartidor', [RepartidorController::class, 'login'])->name('login.repartidor.post');
-Route::post('/logout-repartidor', [RepartidorController::class, 'logout'])->name('logout.repartidor');
 
+// Usuario web
+Route::middleware('auth:web')->group(function () {
+    Route::get('/usuario', function () {
+        return view('usuario');
+    })->name('usuario');
+
+    Route::get('/admin', function () {
+        return view('admin');
+    })->name('admin');
+});
+
+// Repartidor wed
+Route::middleware('auth:repartidor')->group(function () {
+    Route::get('/repartidor', function () {
+        return view('repartidor');
+    })->name('repartidor');
+});

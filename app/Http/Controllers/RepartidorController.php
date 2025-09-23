@@ -50,33 +50,33 @@ class RepartidorController extends Controller
 
 
 
-        return redirect('/login-repartidor')
+        return redirect('/login')
             ->with('success', 'Registro exitoso. ¡Ahora puedes iniciar sesión!');
     }
 
     // Mostrar formulario de login
     public function showLoginForm()
     {
-        return view('login-repartidor'); 
+        return view('/login'); 
     }
 
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'correo'     => 'required|email',
-            'contrasena' => 'required|string',
+            'email'     => 'required|email',
+            'password' => 'required|string',
         ]);
 
-        $user = Repartidor::where('useCorreo', $credentials['correo'])->first();
+        $user = Repartidor::where('useCorreo', $credentials['email'])->first();
 
-        if ($user && Hash::check($credentials['contrasena'], $user->contraseña)) { // corregido
+        if ($user && Hash::check($credentials['password'], $user->contraseña)) { // corregido
             Auth::login($user);
-            return redirect('/repartidor-dashboard')
+            return redirect('/repartidor')
                 ->with('success', 'Bienvenido ' . $user->NombreRepar);
         }
 
         return back()->withErrors([
-            'correo' => 'Credenciales incorrectas.',
+            'email' => 'Credenciales incorrectas.',
         ]);
     }
 
@@ -86,7 +86,7 @@ class RepartidorController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login-repartidor')
+        return redirect('/login')
             ->with('success', 'Sesión cerrada correctamente.');
     }
 }

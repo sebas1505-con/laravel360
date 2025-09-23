@@ -37,6 +37,7 @@ class RegistroController extends Controller
             'Direccion' => $request->Direccion,
             'fecha_nacimiento' => $request->fecha_nacimiento,
             'Barrio' => $request->Barrio,
+            'rol'        => 'cliente',
         ]);
 
         return redirect('/login')->with('success', 'Registro exitoso. ¡Ahora puedes iniciar sesión!');

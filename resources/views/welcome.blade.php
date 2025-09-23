@@ -132,7 +132,7 @@
       <a href="index.php" class="logo">Deportes 360</a>
       <ul>
         <li><a href="{{'/login'}}">Inicio</a></li>
-        <li><a href="menu.php">Catálogo</a></li>
+        <li><a href="{{'/login'}}">Catálogo</a></li>
         <li><a href="#">Ayuda con tallas</a></li>
       </ul>
     </div>

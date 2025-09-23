@@ -4,41 +4,54 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Usuario;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Usuario;
+use App\Models\Repartidor;
 
 class AuthController extends Controller
 {
-    // Mostrar formulario de login
+    
     public function showLoginForm()
     {
-        return view('login');
+        return view('/login'); 
     }
 
-    // Autenticar usuario
     public function login(Request $request)
     {
         $request->validate([
-            'email' => 'required|email',
+            'email'    => 'required|email',
             'password' => 'required|string',
         ]);
 
-        $user = Usuario::where('useCorreo', $request->email)->first();
+        $email = $request->email;
+        $password = $request->password;
 
-        if ($user && Hash::check($request->password, $user->password)) {
-            Auth::login($user);
-            return redirect('/usuario')->with('success', 'Bienvenido ' . $user->name);
+        //  usuario 
+        $user = Usuario::where('useCorreo', $email)->first();
+        if ($user && Hash::check($password, $user->password)) {
+            Auth::guard('web')->login($user); // Guard 'web' para usuarios
+            $redirect = $user->rol === 'administrador' ? route('admin') : route('usuario');
+            return redirect($redirect)->with('success', 'Bienvenido ' . $user->Username);
+        }
+
+        // repartidor
+        $repartidor = Repartidor::where('useCorreo', $email)->first();
+        if ($repartidor && Hash::check($password, $repartidor->contraseña)) {
+            Auth::guard('repartidor')->login($repartidor); // Guard 'repartidor'
+            return redirect()->route('repartidor')->with('success', 'Bienvenido ' . $repartidor->Usuario);
         }
 
         return back()->withErrors([
             'email' => 'Las credenciales no son correctas.',
-        ]);
+        ])->withInput();
     }
 
-    // Cerrar sesión
     public function logout(Request $request)
     {
-        Auth::logout();
+        // Cerrar sesión 
+        Auth::guard('web')->logout();
+        Auth::guard('repartidor')->logout();
+
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 

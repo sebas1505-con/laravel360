@@ -13,8 +13,8 @@
       <a href="#" class="logo">DEPORTES 360</a>
       <nav class="navbar">
         <ul>
-          <li><a href="usuario.html">Inicio</a></li>
-          <li><a href="index.html#productos">Productos</a></li>
+          <li><a href="{{'/usuario'}}">Inicio</a></li>
+          <li><a href="{{'/productos'}}">Productos</a></li>
           <li><a href="#">Contacto</a></li>
         </ul>
       </nav>

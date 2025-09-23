@@ -22,7 +22,7 @@
             <li><a href="{{'welcome'}}">Inicio</a></li>
             <li><a href="{{'productos'}}">Catálogo</a></li>
             <li><a href="{{'sugerencias'}}">sugerencia</a></li>
-            <li><a href="{{'welcome'}}">Cerrar Sesión</a></li>					
+            <li><a href="{{'login'}}">Cerrar Sesión</a></li>					
           </ul>
         </nav>
 
@@ -79,7 +79,7 @@
         <img src="images/camiseta.png" alt="Camiseta DryFit" />
         <h4>Camiseta DryFit Deportiva</h4>
         <p>$59.900</p>
-        <a href="{{ ('/producto-camiseta') }}" class="btn-1">Más Información</a>
+        <a href="{{ ('/camiseta') }}" class="btn-1">Más Información</a>
       </div>
 
       <div class="Prodcts-1">
@@ -114,7 +114,7 @@
         <img src="images/top.png" alt="Top Mujer" />
         <h4>Top Deportivo Mujer</h4>
         <p>$60.000</p>
-        <a href="{{ ('/top') }}" class="btn-1">Más Información</a>
+        <a href="{{ ('/producto-top') }}" class="btn-1">Más Información</a>
       </div>
 
       <div class="Prodcts-1">
@@ -139,7 +139,7 @@
       <a href="#" class="logo">Deportes 360</a>
       <ul>
         <li><a href="#">Inicio</a></li>
-        <li><a href="{{ ('/menu') }}">Catálogo</a></li>
+        <li><a href="{{ ('/productos') }}">Catálogo</a></li>
         <li><a href="#">Contacto</a></li>
         <li><a href="{{ ('/login') }}">Cerrar Sesión</a></li>
       </ul>
@@ -151,19 +151,19 @@
       const termino = document.getElementById("busqueda").value.toLowerCase();
 
       if (termino.includes("camiseta")) {
-        window.location.href = "producto-camiseta.html";
+        window.location.href = "{{'/camiseta'}}";
       } else if (termino.includes("sudadera")) {
-        window.location.href = "producto-sudadera.html";
+        window.location.href = "{{'/sudadera'}}";
       } else if (termino.includes("leggings")) {
-        window.location.href = "producto-leggings.html";
+        window.location.href = "{{'/leggings'}}";
       } else if (termino.includes("chaqueta")) {
-        window.location.href = "producto-chaqueta.html";
+        window.location.href = "{{'/chaqueta'}}";
       } else if (termino.includes("short")) {
-        window.location.href = "producto-short.html";
+        window.location.href = "{{'/short'}}";
       } else if (termino.includes("top")) {
-        window.location.href = "producto-top.html";
+        window.location.href = "{{'/producto-top'}}";
       } else if (termino.includes("conjunto")) {
-        window.location.href = "producto-conjunto-mujer.html";
+        window.location.href = "{{'/producto-conjunto-mujer'}}";
       } else if (termino.includes("buzo")) {
         window.location.href = "producto-buzo.html";
       } else {
