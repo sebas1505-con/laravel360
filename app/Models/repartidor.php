@@ -9,14 +9,16 @@ class Repartidor extends Authenticatable
     protected $table = 'repartidores';
 
     protected $fillable = [
-        'NombreRepar',
-        'useCorreo',
-        'telefono',
-        'vehiculo',
-        'fecha_nacimiento',
-        'usuario',
-        'password',
-    ];
+      'NombreRepar',
+      'useCorreo',
+      'repTelefono',
+      'tipodevehi',
+      'numplaca',
+      'Usuario',
+      'contraseña',
+      'fk_id_usuario',
+];
+
 
     protected $hidden = [
         'password',

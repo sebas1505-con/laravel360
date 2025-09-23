@@ -13,8 +13,8 @@
       <a href="#" class="logo">DEPORTES 360</a>
       <nav class="navbar">
         <ul>
-          <li><a href="usuario.html">Inicio</a></li>
-          <li><a href="productos.html">Productos</a></li>
+          <li><a href="{{ ('/usuario') }}">Inicio</a></li>
+          <li><a href="{{ ('/carrito') }}">Carrito</a></li>
           <li><a href="#">Contacto</a></li>
         </ul>
       </nav>
@@ -29,49 +29,49 @@
         <img src="images/camiseta.png" alt="Camiseta DryFit Deportiva">
         <h4>Camiseta DryFit Deportiva</h4>
         <p>$59.900</p>
-        <a href="producto-camiseta.html" class="btn-1">Más Información</a>
+        <a href="{{ ('camiseta') }}" class="btn-1">Más Información</a>
       </div>
 
       <div class="Prodcts-1">
         <img src="images/sudadera.png" alt="Sudadera Clásica Unisex">
         <h4>Sudadera Clásica Unisex</h4>
         <p>$99.000</p>
-        <a href="producto-sudadera.html" class="btn-1">Más Información</a>
+        <a href="{{ ('sudadera') }}" class="btn-1">Más Información</a>
       </div>
 
       <div class="Prodcts-1">
         <img src="images/leggings.png" alt="Leggings Deportivos Mujer">
         <h4>Leggings Deportivos Mujer</h4>
         <p>$85.000</p>
-        <a href="producto-leggings.html" class="btn-1">Más Información</a>
+        <a href="{{ ('leggings') }}" class="btn-1">Más Información</a>
       </div>
 
       <div class="Prodcts-1">
         <img src="images/chaqueta.png" alt="Chaqueta Rompevientos">
         <h4>Chaqueta Rompevientos</h4>
         <p>$135.000</p>
-        <a href="producto-chaqueta.html" class="btn-1">Más Información</a>
+        <a href="{{ ('chaqueta') }}" class="btn-1">Más Información</a>
       </div>
 
       <div class="Prodcts-1">
         <img src="images/short.png" alt="Short Deportivo Hombre">
         <h4>Short Deportivo Hombre</h4>
         <p>$49.000</p>
-        <a href="producto-short.html" class="btn-1">Más Información</a>
+        <a href="{{ ('short') }}" class="btn-1">Más Información</a>
       </div>
 
       <div class="Prodcts-1">
         <img src="images/top.png" alt="Top Deportivo Mujer">
         <h4>Top Deportivo Mujer</h4>
         <p>$60.000</p>
-        <a href="producto-top.html" class="btn-1">Más Información</a>
+        <a href="{{ ('producto-top') }}" class="btn-1">Más Información</a>
       </div>
 
       <div class="Prodcts-1">
         <img src="images/conjunto-mujer.png" alt="Conjunto Deportivo Mujer">
         <h4>Conjunto Deportivo Mujer</h4>
         <p>$149.000</p>
-        <a href="producto-conjunto-mujer.html" class="btn-1">Más Información</a>
+        <a href="{{ ('producto-conjunto-mujer') }}" class="btn-1">Más Información</a>
       </div>
 
       <div class="Prodcts-1">
@@ -89,7 +89,7 @@
       <a href="#" class="logo">DEPORTES 360</a>
       <ul>
         <li><a href="{{'welcome'}}">Inicio</a></li>
-        <li><a href="#">Productos</a></li>
+        <li><a href="{{ route('productos') }}">Productos</a></li>
         <li><a href="#">Contacto</a></li>
       </ul>
     </div>

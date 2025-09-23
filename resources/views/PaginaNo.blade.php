@@ -12,6 +12,6 @@
 
   <h1>Página no disponible</h1>
   <p>Estamos trabajando para solucionarlo lo más rápido posible.</p>
-  <a href="carrito.html">Volver al Carrito</a>
+  <a href="{{ route('carrito') }}">Volver al Carrito</a>
 </body>
 </html>

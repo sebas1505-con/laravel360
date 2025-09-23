@@ -27,15 +27,15 @@ Route::get('/admin', function () {
 Route::get('/sugerencias', function () {
     return view('sugerencias'); 
 });
-Route::get('/producto-camiseta', function () {
+Route::get('/camiseta', function () {
     return view('producto-camiseta');
 })->name('producto-camiseta');
 Route::get('/chaqueta', function () {
     return view('producto-chaqueta');
 })->name('producto-chaqueta');
-Route::get('/conjunto-mujer', function () {
-    return view('producto-conjunto');
-})->name('producto-caonjunto');
+Route::get('/producto-conjunto-mujer', function () {
+    return view('producto-conjunto-mujer');
+})->name('producto-conjuntomujer');
 Route::get('/leggings', function () {
     return view('producto-leggings');
 })->name('producto-leggings');
@@ -45,7 +45,7 @@ Route::get('/short', function () {
 Route::get('/sudadera', function () {
     return view('producto-sudadera');
 })->name('producto-sudadera');
-Route::get('/top', function () {
+Route::get('/producto-top', function () {
     return view('producto-top');
 })->name('producto-top');
 Route::get('/productos', function () {
@@ -60,6 +60,21 @@ Route::get('/Crear-Repartidor', function () {
 Route::get('/Crear-Admin', function () {
     return view('Crear-Admin');
 })->name('/Crear-Admin');
+Route::get('/carrito', function () {
+    return view('carrito');
+})->name('carrito');
+Route::get('/formulario-compra', function () {
+    return view('formulario-compra');
+})->name('formulario-compra');
+route::get('/paginaNo', function () {
+    return view('paginaNo');
+})->name('paginaNo');
+route::get('/pedidos', function () {
+    return view('pedidos');
+})->name('pedidos');
+route::get('/inventario', function () {
+    return view('inventario');
+})->name('inventario');
 
 //usuario
 Route::get('/register', [RegistroController::class, 'showRegisterForm'])->name('register');

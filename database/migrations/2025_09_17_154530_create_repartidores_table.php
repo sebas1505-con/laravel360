@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('useCorreo');
             $table->string('Usuario');
             $table->string('contraseña');
-            $table->foreignId('fk_id_usuario')->references('id')->on('usuarios')->onDelete('cascade');
+            $table->foreignId('fk_id_usuario')->nullable()->constrained('usuarios')->onDelete('cascade');
             $table->timestamps();
         });
     }

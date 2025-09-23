@@ -16,13 +16,13 @@
 
   <nav class="sidebar">
     <ul>
-      <li><a href="usuario.html">Inicio</a></li>
-      <li><a href="pedidos.html">Pedidos</a></li>
-      <li><a href="productos.html">Productos</a></li>
+      <li><a href="{{ ('/usuario') }}">Inicio</a></li>
+      <li><a href="{{ ('/pedidos') }}">Pedidos</a></li>
+      <li><a href="{{ ('/productos') }}">Productos</a></li>
       <li><a href="#">Clientes</a></li>
       <li><a href="#">Reportes</a></li>
-      <li><a href="inventario.html">Inventario</a></li>
-      <li><a href="login.html">Cerrar sesión</a></li>
+      <li><a href="{{ ('/inventario') }}">Inventario</a></li>
+      <li><a href="{{ ('/login') }}">Cerrar sesión</a></li>
     </ul>
   </nav>
 

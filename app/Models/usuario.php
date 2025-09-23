@@ -30,7 +30,7 @@ class Usuario extends Authenticatable
 
     protected $hidden = [
         'contrasena',
-        'remember_token', // opcional, si en tu tabla existe
+        'remember_token',
     ];
 
     protected $casts = [
@@ -41,4 +41,6 @@ class Usuario extends Authenticatable
     {
         return $this->contrasena;
     }
+
 }
+

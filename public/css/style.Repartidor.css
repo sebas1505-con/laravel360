@@ -36,11 +36,13 @@ body {
 
 
 .login-form {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 15px 20px; 
   margin-top: 20px;
   text-align: left;
 }
+
 
 .login-form label {
   margin: 8px 0 5px;

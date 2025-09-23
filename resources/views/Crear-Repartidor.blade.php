@@ -45,6 +45,8 @@
       </div>
     @endif
 
+    
+
     <label for="nombre">Nombre Completo</label>
     <input type="text" id="nombre" name="nombre" value="{{ old('nombre') }}" placeholder="Ingresa tu nombre completo" required>
 
@@ -59,6 +61,9 @@
 
     <label for="contrasena_confirmation">Confirmar Contraseña</label>
     <input type="password" id="contrasena_confirmation" name="contrasena_confirmation" placeholder="Repite tu contraseña" required>
+
+    <label for="placa">Número de placa</label>
+    <input type="text" name="placa" id="placa" placeholder=" Ejemplo SFQ-072 " required>
 
     <label for="telefono">Teléfono</label>
     <input type="tel" id="telefono" name="telefono" value="{{ old('telefono') }}" placeholder="+57 300 000 0000">

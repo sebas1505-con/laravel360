@@ -13,8 +13,8 @@
       <a href="{{'/usuario'}}" class="logo">Deportes 360</a>
       <nav class="navbar">
         <ul>
-          <li><a href="usuario.html">Inicio</a></li>
-          <li><a href="index.html#productos">Productos</a></li>
+          <li><a href="{{ ('/usuario') }}">Inicio</a></li>
+          <li><a href="{{ ('/productos') }}">Productos</a></li>
           <li><a href="#">Contacto</a></li>
         </ul>
       </nav>
@@ -29,9 +29,9 @@
     <div class="resumen-carrito">
       <h3>Total: <span id="total">$0</span></h3>
       
-      <a href="formulario-compra.html" class="btn-finalizar">Finalizar compra</a>
-      <a href="productos.html" class="btn-finalizar">Seguir comprando</a>
-      <a href="PaginaNo.html" class="btn-finalizar">Tienes un cupón de descuento. ¡Úsalo aquí!</a>
+      <a href="{{ route('formulario-compra') }}" class="btn-finalizar">Finalizar compra</a>
+      <a href="{{ route('productos') }}" class="btn-finalizar">Seguir comprando</a>
+      <a href="{{ route('paginaNo') }}" class="btn-finalizar">Tienes un cupón de descuento. ¡Úsalo aquí!</a>
 
       <button onclick="vaciarCarrito()" class="btn-finalizar" style="background-color: #e53935;">Vaciar carrito</button>
     </div>

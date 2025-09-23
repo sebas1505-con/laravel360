@@ -37,7 +37,7 @@
         <div class="hero-text">
             <h1>CELEBRA CADA MOVIMIENTO</h1>
             <p>TECNOLOGÍA, COMODIDAD Y ESTILO PARA CADA DÍA.</p>
-            <a href="menu.php" class="btn-2">Compra Ya</a>
+            <a href="{{'/login'}}" class="btn-2">Compra Ya</a>
         </div>
         <div class="hero-image">
              <img src="images/atleta-hero.png" alt="Atleta saltando" />
@@ -73,56 +73,56 @@
         <img src="images/camiseta.png" alt="Camiseta DryFit" />
         <h4>Camiseta DryFit Deportiva</h4>
         <p>$59.900</p>
-        <a href="login.php" class="btn-1">Más Información</a>
+        <a href="{{'/login'}}" class="btn-1">Más Información</a>
       </div>
 
       <div class="Prodcts-1">
         <img src="images/sudadera.png" alt="Sudadera Unisex" />
         <h4>Sudadera Clásica Unisex</h4>
         <p>$120.000</p>
-        <a href="login.php" class="btn-1">Más Información</a>
+        <a href="{{'/login'}}" class="btn-1">Más Información</a>
       </div>
 
       <div class="Prodcts-1">
         <img src="images/leggings.png" alt="Leggings Mujer" />
         <h4>Leggings Deportivos Mujer</h4>
         <p>$85.000</p>
-        <a href="login.php" class="btn-1">Más Información</a>
+        <a href="{{'/login'}}" class="btn-1">Más Información</a>
       </div>
 
       <div class="Prodcts-1">
         <img src="images/chaqueta.png" alt="Chaqueta Rompevientos" />
         <h4>Chaqueta Rompevientos</h4>
         <p>$135.000</p>
-        <a href="login.php" class="btn-1">Más Información</a>
+        <a href="{{'/login'}}" class="btn-1">Más Información</a>
       </div>
 
       <div class="Prodcts-1">
         <img src="images/short.png" alt="Short Hombre" />
         <h4>Short Deportivo Hombre</h4>
         <p>$49.000</p>
-        <a href="login.php" class="btn-1">Más Información</a>
+        <a href="{{'/login'}}" class="btn-1">Más Información</a>
       </div>
 
       <div class="Prodcts-1">
         <img src="images/top.png" alt="Top Mujer" />
         <h4>Top Deportivo Mujer</h4>
         <p>$60.000</p>
-        <a href="login.php" class="btn-1">Más Información</a>
+        <a href="{{'/login'}}" class="btn-1">Más Información</a>
       </div>
 
       <div class="Prodcts-1">
         <img src="images/conjunto-mujer.png" alt="Conjunto Deportivo Mujer" />
         <h4>Conjunto Deportivo Mujer</h4>
         <p>$149.000</p>
-        <a href="login.php" class="btn-1">Más Información</a>
+        <a href="{{'/login'}}" class="btn-1">Más Información</a>
       </div>
 
       <div class="Prodcts-1">
         <img src="images/buzo-hombre.png" alt="Buzo Deportivo Hombre" />
         <h4>Buzo Deportivo Hombre</h4>
         <p>$110.000</p>
-        <a href="login.php" class="btn-1">Más Información</a>
+        <a href="{{'/login'}}" class="btn-1">Más Información</a>
       </div>
     </div>
   </main>
@@ -131,7 +131,7 @@
     <div class="footer-content">
       <a href="index.php" class="logo">Deportes 360</a>
       <ul>
-        <li><a href="index.php">Inicio</a></li>
+        <li><a href="{{'/login'}}">Inicio</a></li>
         <li><a href="menu.php">Catálogo</a></li>
         <li><a href="#">Ayuda con tallas</a></li>
       </ul>

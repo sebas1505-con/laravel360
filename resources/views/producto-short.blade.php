@@ -118,7 +118,7 @@
     carrito.push(producto);
     localStorage.setItem("carrito", JSON.stringify(carrito));
 
-    window.location.href = "carrito.html";
+    window.location.href = "{{ route('carrito') }}";
   }
 </script>
 
