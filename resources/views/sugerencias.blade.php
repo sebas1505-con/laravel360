@@ -17,5 +17,6 @@
       <button type="submit" class="btn-enviar">Enviar sugerencia</button>
     </form>
   </div>
+  <a href="{{ url('/usuario') }}" class="btn-volver-home">Volver</a>
 </body>
 </html>
