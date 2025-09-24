@@ -117,3 +117,22 @@ body {
 .login-form button:hover {
   background-color: #bf0f0f;
 }
+.btn-volver-home {
+  position: absolute;
+  top: 20px;       
+  left: 20px;      
+  background: #ff0800;   
+  color: #fff;           
+  padding: 8px 15px;     /* espacio interno */
+  border-radius: 8px;    
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+  transition: background 0.3s ease;
+}
+
+.btn-volver-home:hover {
+  background: #b30000;   
+  text-decoration: none; 
+}

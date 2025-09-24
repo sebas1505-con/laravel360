@@ -63,5 +63,6 @@
       <button type="submit">Registrarse</button>
     </form>
   </div>
+  <a href="{{ url('/login') }}" class="btn-volver-home">Volver</a>
 </body>
 </html>

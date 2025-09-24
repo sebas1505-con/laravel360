@@ -29,7 +29,7 @@ class AuthController extends Controller
         //  usuario 
         $user = Usuario::where('useCorreo', $email)->first();
         if ($user && Hash::check($password, $user->password)) {
-            Auth::guard('web')->login($user); // Guard 'web' para usuarios
+            Auth::guard('web')->login($user); 
             $redirect = $user->rol === 'administrador' ? route('admin') : route('usuario');
             return redirect($redirect)->with('success', 'Bienvenido ' . $user->Username);
         }
@@ -37,7 +37,7 @@ class AuthController extends Controller
         // repartidor
         $repartidor = Repartidor::where('useCorreo', $email)->first();
         if ($repartidor && Hash::check($password, $repartidor->contraseña)) {
-            Auth::guard('repartidor')->login($repartidor); // Guard 'repartidor'
+            Auth::guard('repartidor')->login($repartidor); 
             return redirect()->route('repartidor')->with('success', 'Bienvenido ' . $repartidor->Usuario);
         }
 
