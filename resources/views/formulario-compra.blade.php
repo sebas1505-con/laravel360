@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-   <link rel="icon" type="imagenes/x-icon" href="images/Re.png">
+  <link rel="icon" type="imagenes/x-icon" href="images/Re.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulario de Compra - Deportes 360</title>
   <link rel="stylesheet" href="{{ asset('css/formulario.css') }}">
@@ -10,38 +10,37 @@
 <body>
   <div class="formulario-container">
     <h2>📝 Finalizar compra</h2>
-    <form id="formularioCompra">
-      <label for="nombre">Nombre completo:</label>
-      <input type="text" id="nombre" name="nombre" required>
+    
 
-      <label for="correo">Correo electrónico:</label>
-      <input type="email" id="correo" name="correo" required>
+    <form id="formularioCompra" method="POST" action="{{ route('ventas.store') }}">
+  @csrf
 
-      <label for="direccion">Dirección de envío:</label>
-      <input type="text" id="direccion" name="direccion" required>
+  <label for="cantProducto">Cantidad de productos:</label>
+  <input type="number" id="cantProducto" name="cantProducto" required>
 
-      <label for="telefono">Teléfono de contacto:</label>
-      <input type="tel" id="telefono" name="telefono" required>
+  <label for="metodoEnvio">Método de envío:</label>
+  <select name="metodoEnvio" id="metodoEnvio" required>
+      <option value="domicilio">Domicilio</option>
+  </select>
 
-      <label for="metodoPago">Método de pago:</label>
-      <select id="metodoPago" name="metodoPago" required>
-        <option value="">Seleccionar...</option>
-        <option value="efectivo">Pago contra entrega</option>
-        <option value="tarjeta">Tarjeta de crédito/débito</option>
-        <option value="transferencia">Transferencia bancaria</option>
-      </select>
+  <label for="totalVenta">Total de la venta:</label>
+  <input type="number" step="0.01" id="totalVenta" name="totalVenta" required>
 
-      <button type="submit">Confirmar compra</button>
-    </form>
+  <label for="metodo_de_pago">Método de pago:</label>
+  <select name="metodo_de_pago" id="metodo_de_pago" required>
+      <option value="">Seleccionar...</option>
+      <option value="efectivo">Efectivo</option>
+      <option value="tarjeta">Tarjeta</option>
+      <option value="transferencia">Transferencia</option>
+  </select>
+  <button type="submit">Confirmar compra</button>
+  @if(session('success'))
+    <script>
+        alert('{{ session('success') }}');
+    </script>
+@endif
+</form>
   </div>
-
-  <script>
-    document.getElementById('formularioCompra').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert("✅ ¡Compra realizada con éxito! Gracias por tu pedido.");
-      localStorage.removeItem("carrito");
-      window.location.href = "{{'/usuario'}}";
-    });
-  </script>
+  <a href="{{ url('/usuario') }}" class="btn-volver-home">Volver</a>
 </body>
 </html>

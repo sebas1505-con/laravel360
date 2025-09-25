@@ -7,8 +7,7 @@ use App\Models\Repartidor;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Usuario;
-
-
+use Illuminate\Routing\Controller;
 
 class RepartidorController extends Controller
 {
@@ -69,7 +68,7 @@ class RepartidorController extends Controller
 
         $user = Repartidor::where('useCorreo', $credentials['email'])->first();
 
-        if ($user && Hash::check($credentials['password'], $user->contraseña)) { // corregido
+        if ($user && Hash::check($credentials['password'], $user->contraseña)) { 
             Auth::login($user);
             return redirect('/repartidor')
                 ->with('success', 'Bienvenido ' . $user->NombreRepar);

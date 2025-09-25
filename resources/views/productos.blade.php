@@ -6,6 +6,7 @@
   <link rel="icon" type="image/x-icon" href="images/Logo.png">
   <title>Productos - Deportes 360</title>
   <link rel="stylesheet" href="{{ asset('css/productos.css') }}">
+
 </head>
 <body>
   <header class="header">
@@ -15,7 +16,7 @@
         <ul>
           <li><a href="{{ ('/usuario') }}">catalogo</a></li>
           <li><a href="{{ ('/carrito') }}">Carrito</a></li>
-          <li><a href="#">Contacto</a></li>
+          <li><a href="{{('/contacto')}}">Contacto</a></li>
         </ul>
       </nav>
     </div>

@@ -22,7 +22,8 @@
             <li><a href="{{'welcome'}}">Inicio</a></li>
             <li><a href="{{'productos'}}">Catálogo</a></li>
             <li><a href="{{'sugerencias'}}">sugerencia</a></li>
-            <li><a href="{{'login'}}">Cerrar Sesión</a></li>					
+            <li><a href="{{'login'}}">Cerrar Sesión</a></li>
+            <li><a href="{{'contacto'}}">Contacto</a></li>					
           </ul>
         </nav>
 
@@ -140,7 +141,7 @@
       <ul>
         <li><a href="#">Inicio</a></li>
         <li><a href="{{ ('/productos') }}">Catálogo</a></li>
-        <li><a href="#">Contacto</a></li>
+        <li><a href="{{'contacto'}}">Contacto</a></li>
         <li><a href="{{ ('/login') }}">Cerrar Sesión</a></li>
       </ul>
     </div>

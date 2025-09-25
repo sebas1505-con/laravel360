@@ -18,17 +18,19 @@
       <span class="cuadro-titulo">Cliente</span>
     </a>
 
+    <!-- Administrador (aún sin enlace) -->
+    <a href="{{('/Crear-Admin')}}" class="cuadro rol-admin">
+      <img class="cuadro-img" src="images/admin.png" alt="Icono Administrador">
+      <span class="cuadro-titulo">Administrador</span>
+    </a>
+
     <!-- Repartidor (aún sin enlace) -->
     <a href="{{('/Crear-Repartidor')}}" class="cuadro rol-repartidor">
       <img class="cuadro-img" src="images/repartidor.png" alt="Icono Repartidor">
       <span class="cuadro-titulo">Repartidor</span>
     </a>
 
-    <!-- Administrador (aún sin enlace) -->
-    <a href="{{('/Crear-Admin')}}" class="cuadro rol-admin">
-      <img class="cuadro-img" src="images/admin.png" alt="Icono Administrador">
-      <span class="cuadro-titulo">Emprendedor</span>
-    </a>
+    
   </main>
 </body>
 </html>

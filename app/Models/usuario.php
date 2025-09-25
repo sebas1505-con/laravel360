@@ -22,7 +22,6 @@ class Usuario extends Authenticatable
     'Direccion',
     'fecha_nacimiento',
     'Barrio',
-    'rol',
 ];
 
 

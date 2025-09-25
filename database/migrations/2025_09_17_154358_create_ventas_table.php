@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->id();
-            $table->string('cantProducto');
+            $table->integer('cantProducto');
             $table->string('metodoEnvio');
-            $table->string('totalVenta');
-            $table->string('metodo_de_pagp');
-            $table->string('Fecha_de_venta');
-            $table->foreignId('fk_id_cliente')->references('id')->on('clientes')->onDelete('cascade');
+            $table->decimal('totalVenta');
+            $table->string('metodo_de_pago');
+            $table->dateTime('Fecha_de_venta')->nullable();
+            $table->foreignId('fk_id_cliente')->references('id')->on('usuarios')->onDelete('cascade');
             $table->timestamps();
         });
     }

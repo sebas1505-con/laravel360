@@ -3,6 +3,7 @@
 use App\Http\Controllers\registroController;
 use App\Http\Controllers\RepartidorController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\VentaController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Container\Attributes\Auth;
 
@@ -75,12 +76,20 @@ route::get('/pedidos', function () {
 route::get('/inventario', function () {
     return view('inventario');
 })->name('inventario');
+route::get('/contacto', function () {
+    return view('contacto');
+})->name('contacto');
+route::get('/quienes', function () {
+    return view('quienes');
+})->name('quienes');
 
 Route::get('/register', [RegistroController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [RegistroController::class, 'store'])->name('register.store');
 Route::get('/register-repartidor', [RepartidorController::class, 'showRegisterForm'])->name('register.repartidor');
 Route::post('/register-repartidor', [RepartidorController::class, 'store'])->name('register.repartidor.store');
 
+Route::post('/guardar-venta', [VentaController::class, 'store'])->name('guardar.venta');
+Route::post('/ventas', [VentaController::class, 'store'])->name('ventas.store');
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
@@ -103,4 +112,9 @@ Route::middleware('auth:repartidor')->group(function () {
     Route::get('/repartidor', function () {
         return view('repartidor');
     })->name('repartidor');
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/ventas/create', [VentaController::class, 'create'])->name('ventas.create');
+    Route::post('/ventas', [VentaController::class, 'store'])->name('ventas.store');
 });

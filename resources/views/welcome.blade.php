@@ -1,6 +1,5 @@
 <?php
-// Puedes iniciar sesión de usuario aquí si lo necesitas
-// session_start();
+// inicio session
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -25,7 +24,8 @@
           <ul>
             <li><a href="{{'/'}}">Inicio</a></li>
             <li><a href="{{'/menu'}}">Catálogo</a></li>
-            <li><a href="{{'/login'}}">Iniciar sesión</a></li>         
+            <li><a href="{{'/quienes'}}">Quienes somos</a></li>
+            <li><a href="{{'/login'}}">Iniciar sesión</a></li>
           </ul>
         </nav>
       </div>

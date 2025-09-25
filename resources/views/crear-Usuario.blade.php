@@ -22,6 +22,11 @@
         </ul>
       </div>
     @endif
+    @if(session('success'))
+    <script>
+        alert('{{ session('success') }}');
+    </script>
+@endif
 
     <form class="login-form" action="{{ route('register.store') }}" method="POST">
       @csrf
