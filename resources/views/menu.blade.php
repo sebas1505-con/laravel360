@@ -16,18 +16,31 @@
     <a href="{{('/Crear-Usuario')}}" class="cuadro rol-cliente">
       <img class="cuadro-img" src="images/cliente.png" alt="Icono Cliente">
       <span class="cuadro-titulo">Cliente</span>
+       <p>
+        Regístrate como cliente para comprar productos, disfrutar de promociones
+        y vivir la experiencia deportiva completa.
+      </p>
     </a>
 
     <!-- Administrador (aún sin enlace) -->
     <a href="{{('/Crear-Admin')}}" class="cuadro rol-admin">
       <img class="cuadro-img" src="images/admin.png" alt="Icono Administrador">
       <span class="cuadro-titulo">Administrador</span>
+       <p>
+        Administra la tienda, gestiona productos, controla inventarios y supervisa
+        las ventas de Deportes 360.
+      </p>
     </a>
 
     <!-- Repartidor (aún sin enlace) -->
     <a href="{{('/Crear-Repartidor')}}" class="cuadro rol-repartidor">
       <img class="cuadro-img" src="images/repartidor.png" alt="Icono Repartidor">
       <span class="cuadro-titulo">Repartidor</span>
+    <p>
+        Únete como repartidor para trabajar con nosotros y llevar la pasión por
+        el deporte a cada rincón de Colombia.
+      </p>
+    
     </a>
 
     
