@@ -10,7 +10,7 @@
   <div class="error-container">
     <h1>Error 505</h1>
     <p>¡Algo salió mal en el servidor! Intenta de nuevo más tarde.</p>
-    <a href="index.html" class="btn-volver">Volver al inicio</a>
+    <a href="{{'welcome'}}" class="btn-volver">Volver al inicio</a>
   </div>
 </body>
 </html>

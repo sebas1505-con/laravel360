@@ -1,4 +1,3 @@
-/* Fondo general */
 body {
   margin: 0;
   height: 100vh;
@@ -9,60 +8,60 @@ body {
   color: white;
 }
 
-/* Encabezado */
+
 .encabezado {
   text-align: center;
   padding: 20px;
   background: rgba(0,0,0,0.5);
 }
 
-/* Contenedor de roles, ahora con flexbox */
+
 .roles {
   flex: 1;
-  display: flex; /* Usamos flexbox para una mejor alineación horizontal */
-  justify-content: center; /* Centramos los elementos horizontalmente */
-  align-items: center; /* Centramos los elementos verticalmente */
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
   height: 100%;
-  gap: 50px; /* Agregamos un espacio entre los cuadros */
+  gap: 50px; 
 }
 
-/* Cada cuadro (botón) */
+
 .cuadro {
   border: none;
-  background: transparent; /* Fondo transparente */
+  background: transparent; 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: 0.3s;
-  width: 250px; /* Tamaño fijo para cada cuadro */
+  width: 250px; 
   height: auto;
   text-decoration: none; /* Quitamos el subrayado del enlace */
-  color: white; /* Color del texto blanco */
+  color: rgb(15, 12, 12); /* Color del texto blanco */
   font-weight: bold;
 }
 
 .cuadro:hover {
   background: rgba(255,255,255,0.1);
   transform: scale(1.05);
-  border-radius: 10px; /* Agregamos un borde redondeado en hover */
+  border-radius: 10px; 
 }
 
-/* Estilos específicos para cada rol */
+
 .rol-cliente .cuadro-titulo {
-  color: #f0c300; /* Color azul para Cliente */
+  color: #f0c300; 
 }
 
 .rol-repartidor .cuadro-titulo {
-  color: #1a649d; /* Color amarillo para Repartidor */
+  color: #1a649d; 
 }
 
 .rol-admin .cuadro-titulo {
-  color: #c40000; /* Color rojo para Administrador */
+  color: #c40000; 
 }
 
-/* Imagen dentro del cuadro */
+
 .cuadro-img {
   width: 120px;
   height: 120px;
@@ -70,17 +69,17 @@ body {
   margin-bottom: 15px;
 }
 
-/* Texto */
+
 .cuadro-titulo {
   font-size: 22px;
   font-weight: bold;
 }
 
-/* Media query para dispositivos móviles */
+
 @media (max-width: 768px) {
   .roles {
-    flex-direction: column; /* Apilamos los cuadros verticalmente en móviles */
-    gap: 20px; /* Reducimos el espacio entre ellos */
+    flex-direction: column; 
+    gap: 20px; 
   }
 }
 

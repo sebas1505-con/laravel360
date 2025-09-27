@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Usuario;
 use App\Models\Repartidor;
+use App\Models\Administrador;
 
 class AuthController extends Controller
 {
@@ -17,34 +18,38 @@ class AuthController extends Controller
     }
 
     public function login(Request $request)
-    {
-        $request->validate([
-            'email'    => 'required|email',
-            'password' => 'required|string',
-        ]);
+{
+    $request->validate([
+        'email'    => 'required|email',
+        'password' => 'required|string',
+    ]);
 
-        $email = $request->email;
-        $password = $request->password;
+    $email = $request->email;
+    $password = $request->password;
 
-        //  usuario 
-        $user = Usuario::where('useCorreo', $email)->first();
-        if ($user && Hash::check($password, $user->password)) {
-            Auth::guard('web')->login($user); 
-            $redirect = $user->rol === 'administrador' ? route('admin') : route('usuario');
-            return redirect($redirect)->with('success', 'Bienvenido ' . $user->Username);
-        }
-
-        // repartidor
-        $repartidor = Repartidor::where('useCorreo', $email)->first();
-        if ($repartidor && Hash::check($password, $repartidor->contraseña)) {
-            Auth::guard('repartidor')->login($repartidor); 
-            return redirect()->route('repartidor')->with('success', 'Bienvenido ' . $repartidor->Usuario);
-        }
-
-        return back()->withErrors([
-            'email' => 'Las credenciales no son correctas.',
-        ])->withInput();
+    $user = Usuario::where('useCorreo', $email)->first();
+    if ($user && Hash::check($password, $user->password)) {
+        Auth::guard('web')->login($user); 
+        $redirect = $user->rol === 'administrador' ? route('admin') : route('usuario');
+        return redirect($redirect)->with('success', 'Bienvenido ' . $user->Username);
     }
+
+    $repartidor = Repartidor::where('useCorreo', $email)->first();
+    if ($repartidor && Hash::check($password, $repartidor->contraseña)) {
+        Auth::guard('repartidor')->login($repartidor); 
+        return redirect()->route('repartidor')->with('success', 'Bienvenido ' . $repartidor->Usuario);
+    }
+
+    $admin = Administrador::where('admCorreo', $email)->first();
+    if ($admin && Hash::check($password, $admin->contraseña)) { 
+        Auth::guard('admin')->login($admin);
+        return redirect()->route('admin')->with('success', 'Bienvenido Administrador ' . $admin->usuario);
+    }
+
+    return back()->withErrors([
+        'email' => 'Las credenciales no son correctas.',
+    ])->withInput();
+}
 
     public function logout(Request $request)
     {

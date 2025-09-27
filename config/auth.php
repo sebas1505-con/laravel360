@@ -44,6 +44,11 @@ return [
         'driver' => 'session',
         'provider' => 'repartidores',
     ],
+     'admin' => [
+        'driver' => 'session',
+        'provider' => 'administradores',
+    ],
+    
 ],
 
 
@@ -72,6 +77,10 @@ return [
     'repartidores' => [
         'driver' => 'eloquent',
         'model' => App\Models\Repartidor::class,
+    ],
+    'administradores' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\Administrador::class,
     ],
 
 

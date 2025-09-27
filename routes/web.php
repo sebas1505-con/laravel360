@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\registroController;
 use App\Http\Controllers\RepartidorController;
 use App\Http\Controllers\AuthController;
@@ -34,9 +35,9 @@ Route::get('/camiseta', function () {
 Route::get('/chaqueta', function () {
     return view('producto-chaqueta');
 })->name('producto-chaqueta');
-Route::get('/producto-conjunto-mujer', function () {
+Route::get('/conjunto-mujer', function () {
     return view('producto-conjunto-mujer');
-})->name('producto-conjuntomujer');
+})->name('producto-conjunto-mujer');
 Route::get('/leggings', function () {
     return view('producto-leggings');
 })->name('producto-leggings');
@@ -82,6 +83,12 @@ route::get('/contacto', function () {
 route::get('/quienes', function () {
     return view('quienes');
 })->name('quienes');
+route::get('/404', function () {
+    return view('404');
+})->name('404');
+route::get('/505', function () {
+    return view('505');
+})->name('505');
 
 Route::get('/register', [RegistroController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [RegistroController::class, 'store'])->name('register.store');
@@ -95,8 +102,10 @@ Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+route::post('/administradores',[AdminController::class,'store'])->name('administradores.store');
 
-// Usuario web
+
+// Usuario 
 Route::middleware('auth:web')->group(function () {
     Route::get('/usuario', function () {
         return view('usuario');
@@ -107,12 +116,17 @@ Route::middleware('auth:web')->group(function () {
     })->name('admin');
 });
 
-// Repartidor wed
+// Repartidor 
 Route::middleware('auth:repartidor')->group(function () {
     Route::get('/repartidor', function () {
         return view('repartidor');
     })->name('repartidor');
 });
+
+//administrador
+Route::get('/admin', function () {
+    return view('admin');
+})->name('admin');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/ventas/create', [VentaController::class, 'create'])->name('ventas.create');

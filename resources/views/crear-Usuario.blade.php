@@ -58,7 +58,7 @@
       <label for="barrio">Barrio</label>
       <input type="text" id="barrio" name="Barrio" value="{{ old('Barrio') }}" placeholder="Ingresa tu barrio">
 
-      <button type="submit">Registrarse</button>
+      <button type="submit" onclick="alert('enviando...')">>Registrarse</button>
     </form>
   </div>
     <a href="{{ url('/login') }}" class="btn-volver-home">Volver</a>

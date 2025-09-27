@@ -11,6 +11,6 @@
 <body>
   <h1>Error 404</h1>
   <p>Lo sentimos, la página que buscas no está disponible.</p>
-  <a href="index.html">Volver al inicio</a>
+  <a href="{{'welcome'}}">Volver al inicio</a>
 </body>
 </html>

@@ -5,27 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulario de Registro</title>
   <link rel="stylesheet" href="{{ asset('css/style.Admin.css') }}">
-
-  <script>
-    function validarFormulario() {
-      const rol = document.getElementById("rol").value;
-
-      if (rol === "") {
-        alert("Por favor selecciona un rol antes de registrarte");
-        return false;
-      }
-
-      if (rol === "cliente") {
-        window.location.href = "cliente/index.html";
-      } else if (rol === "administrador") {
-        window.location.href = "admin/index.html";
-      } else if (rol === "repartidor") {
-        window.location.href = "repartidor/index.html";
-      }
-
-      return false; 
-    }
-  </script>
 </head>
 <body>
   <div class="login-container">
@@ -33,36 +12,32 @@
       <h2>Formulario de Registro</h2>
     </div>
 
-    <form class="login-form" onsubmit="return validarFormulario()">
-      <label for="nombre">Nombre Completo</label>
-      <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre completo">
+    <form class="login-form" action="{{ route('administradores.store') }}" method="POST">
+    @csrf
 
-      <label for="correo">Correo Electrónico</label>
-      <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com">
+    <label for="usuario">Usuario</label>
+    <input type="text" id="usuario" name="usuario" placeholder="Crea tu usuario" required>
 
-      <label for="telefono">Teléfono</label>
-      <input type="tel" id="telefono" name="telefono" placeholder="+57 300 000 0000">
+    <label for="correo">Correo Electrónico</label>
+    <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com" required>
 
-      <label for="telefono">Codigo de Ingreso</label>
-      <input type="tel" id="codigo" name="codigo" placeholder="ADM-000">   
+    <label for="telefono">Teléfono</label>
+    <input type="tel" id="telefono" name="telefono" placeholder="+57 300 000 0000" required>
 
-      <label for="fecha">Fecha de nacimiento</label>
-      <input type="date" id="fecha" name="fecha">
+    <label for="codigo">Codigo de Ingreso</label>
+    <input type="text" id="codigo" name="codigo" placeholder="ADM-000" required>   
 
-      <label for="usuario">Usuario</label>
-      <input type="text" id="usuario" name="usuario" placeholder="Crea tu usuario">
+    <label for="contrasena">Contraseña</label>
+    <input type="password" id="contrasena" name="contrasena" placeholder="Crea una contraseña" required>
 
-      <label for="contrasena">Contraseña</label>
-      <input type="password" id="contrasena" name="contrasena" placeholder="Crea una contraseña">
+    <label for="confirmar">Confirmar Contraseña</label>
+    <input type="password" id="contrasena" name="contrasena_confirmation" placeholder="Repite tu contraseña" required>
 
-      <label for="confirmar">Confirmar Contraseña</label>
-      <input type="password" id="confirmar" name="confirmar" placeholder="Repite tu contraseña">
+    <button type="submit" onclick="alert('enviando...')">Registrarse</button>
 
-     
+  </form>
 
-      <button type="submit">Registrarse</button>
-    </form>
-  </div>
-  <a href="{{ url('/login') }}" class="btn-volver-home">Volver</a>
+</div>
+   <a href="{{ url('/login') }}" class="btn-volver-home">Volver</a>
 </body>
 </html>

@@ -23,7 +23,7 @@
     </a>
 
     <!-- Administrador (aún sin enlace) -->
-    <a href="{{('/Crear-Admin')}}" class="cuadro rol-admin">
+    <a href="{{('/login')}}" class="cuadro rol-admin">
       <img class="cuadro-img" src="images/admin.png" alt="Icono Administrador">
       <span class="cuadro-titulo">Administrador</span>
        <p>
