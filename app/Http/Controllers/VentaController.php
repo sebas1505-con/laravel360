@@ -13,7 +13,6 @@ class VentaController extends Controller
 {
     public function store(Request $request)
 {
-    // Validación de los campos
     $request->validate([
         'cantProducto' => 'required|integer|min:1',
         'metodoEnvio' => 'required|string|max:255',
@@ -28,7 +27,6 @@ class VentaController extends Controller
     }
     $usuarioId = $usuario->id;
 
-    // Verificar si el usuario ya hizo un pedido hoy
     $pedidoExistente = Venta::where('fk_id_cliente', $usuarioId)
         ->whereDate('Fecha_de_venta', now()->toDateString())
         ->first();
@@ -41,7 +39,6 @@ class VentaController extends Controller
         return redirect()->back()->with('success', '¡Ya se hizo tu pedido!');
     }
 
-    // Crear la venta
     Venta::create([
         'cantProducto' => $request->cantProducto,
         'metodoEnvio' => $request->metodoEnvio,
@@ -51,7 +48,6 @@ class VentaController extends Controller
         'Fecha_de_venta' => now(),
     ]);
 
-    // Vaciar carrito
     $request->session()->forget('carrito');
 
     // Redirigir de vuelta con alerta de éxito

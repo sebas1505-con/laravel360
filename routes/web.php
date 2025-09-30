@@ -6,6 +6,7 @@ use App\Http\Controllers\RepartidorController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\VentaController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\InventarioController;
 use Illuminate\Container\Attributes\Auth;
 
 Route::get('/', function () {
@@ -74,9 +75,6 @@ route::get('/paginaNo', function () {
 route::get('/pedidos', function () {
     return view('pedidos');
 })->name('pedidos');
-route::get('/inventario', function () {
-    return view('inventario');
-})->name('inventario');
 route::get('/contacto', function () {
     return view('contacto');
 })->name('contacto');
@@ -89,6 +87,10 @@ route::get('/404', function () {
 route::get('/505', function () {
     return view('505');
 })->name('505');
+
+Route::get('/inventario', [InventarioController::class, 'index'])->name('inventario');
+Route::post('/inventario', [InventarioController::class, 'store'])->name('inventario.store');
+
 
 Route::get('/register', [RegistroController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [RegistroController::class, 'store'])->name('register.store');
@@ -132,3 +134,4 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/ventas/create', [VentaController::class, 'create'])->name('ventas.create');
     Route::post('/ventas', [VentaController::class, 'store'])->name('ventas.store');
 });
+
