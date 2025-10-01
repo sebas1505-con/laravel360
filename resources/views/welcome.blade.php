@@ -25,7 +25,9 @@
             <li><a href="{{'/'}}">Inicio</a></li>
             <li><a href="{{'/menu'}}">Catálogo</a></li>
             <li><a href="{{'/quienes'}}">Quienes somos</a></li>
-            <li><a href="{{'/login'}}">Iniciar sesión</a></li>
+            <li><a href="{{'/login'}}">Iniciar Sesion</a></li>
+            <li><a href="{{'/menu '}}">Registrarse</a></li>
+
           </ul>
         </nav>
       </div>
@@ -133,7 +135,7 @@
       <ul>
         <li><a href="{{'/login'}}">Inicio</a></li>
         <li><a href="{{'/login'}}">Catálogo</a></li>
-        <li><a href="#">Ayuda con tallas</a></li>
+        <li><a href="{{'/404'}}">Ayuda con tallas</a></li>
       </ul>
     </div>
   </footer>

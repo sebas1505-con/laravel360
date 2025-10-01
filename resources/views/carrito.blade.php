@@ -32,6 +32,8 @@
       <a href="{{ route('formulario-compra') }}" class="btn-finalizar">Finalizar compra</a>
       <a href="{{ route('productos') }}" class="btn-finalizar">Seguir comprando</a>
       <a href="{{ route('paginaNo') }}" class="btn-finalizar">Tienes un cupón de descuento. ¡Úsalo aquí!</a>
+      <a href="{{ route('usuario') }}" class="btn-finalizar">Volver</a>
+
 
       <button onclick="vaciarCarrito()" class="btn-finalizar" style="background-color: #e53935;">Vaciar carrito</button>
     </div>

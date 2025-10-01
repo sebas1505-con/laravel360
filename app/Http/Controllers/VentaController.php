@@ -51,7 +51,8 @@ class VentaController extends Controller
     $request->session()->forget('carrito');
 
     // Redirigir de vuelta con alerta de éxito
-    return redirect()->back()->with('success', '¡Venta registrada correctamente!');
+    return redirect()->route('usuario')->with('success', 'Compra realizada correctamente.');
+
 }
 
 }

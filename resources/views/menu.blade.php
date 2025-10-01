@@ -22,16 +22,6 @@
       </p>
     </a>
 
-    <!-- Administrador (aún sin enlace) -->
-    <a href="{{('/login')}}" class="cuadro rol-admin">
-      <img class="cuadro-img" src="images/admin.png" alt="Icono Administrador">
-      <span class="cuadro-titulo">Administrador</span>
-       <p>
-        Administra la tienda, gestiona productos, controla inventarios y supervisa
-        las ventas de Deportes 360.
-      </p>
-    </a>
-
     <!-- Repartidor (aún sin enlace) -->
     <a href="{{('/Crear-Repartidor')}}" class="cuadro rol-repartidor">
       <img class="cuadro-img" src="images/repartidor.png" alt="Icono Repartidor">
@@ -41,10 +31,10 @@
         el deporte a cada rincón de Colombia.
       </p>
     
-    </a>
-
-    
+    </a>    
   </main>
+ <a href="{{ url('/welcome') }}" class="btn-volver-home">Volver</a>
+
 </body>
 </html>
 

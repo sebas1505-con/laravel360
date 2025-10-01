@@ -24,7 +24,7 @@ class AdminController extends Controller
             'contraseña' => Hash::make($request->contrasena),
             'telefono' => $request->telefono,
             'codigo' => $request->codigo,
-            'fk_id_usuario' => null,
+            'fk_id_usuario' => $request->fk_id_usuario ?? null,
         ]);
 
         return redirect()->route('login')->with('success', 'Administrador registrado correctamente');

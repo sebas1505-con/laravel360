@@ -38,6 +38,6 @@
   </form>
 
 </div>
-   <a href="{{ url('/login') }}" class="btn-volver-home">Volver</a>
+   <a href="{{ url('/menu') }}" class="btn-volver-home">Volver</a>
 </body>
 </html>

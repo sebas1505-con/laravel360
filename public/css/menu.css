@@ -82,6 +82,31 @@ body {
     gap: 20px; 
   }
 }
+button:hover {
+  background-color: #c62828; 
+}
+.login-form button:hover {
+  background-color: #4b7ce0;
+}
+.btn-volver-home {
+  position: absolute;
+  top: 20px;       
+  left: 20px;      
+  background: #1e00ff;   
+  color: #fff;           
+  padding: 8px 15px;     /* espacio interno */
+  border-radius: 8px;    
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+  transition: background 0.3s ease;
+}
+
+.btn-volver-home:hover {
+  background: #0000b3;   
+  text-decoration: none; 
+}
 
 
 

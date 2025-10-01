@@ -78,10 +78,10 @@
     <label for="fecha">Fecha de nacimiento</label>
     <input type="date" id="fecha" name="fecha" value="{{ old('fecha') }}">
 
-    <button type="submit" onclick="alert('enviando...')">>Registrarse</button>
+    <button type="submit" onclick="alert('Creando su cuenta como Repartidor')">>Registrarse</button>
     </form>
  </div>
-   <a href="{{ url('/login') }}" class="btn-volver-home">Volver</a>
+   <a href="{{ url('/menu') }}" class="btn-volver-home">Volver</a>
 
 </body>
 </html>

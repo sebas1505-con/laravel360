@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,16 +17,12 @@
 
   <main>
     <section class="form-section">
-      <form class="formulario-inventario" id="form-inventario" method="POST" action="{{ route('inventario.store') }}">
-  @csrf
-  <input type="hidden" name="fk_id_producto" value="1"> 
-  <input type="hidden" name="fk_id_administrador" value="1"> 
-
-  <input type="text" name="nombre" placeholder="Nombre del producto" required />
-  <input type="number" name="stock" placeholder="Cantidad" required />
-  <input type="number" name="costo_producto_unitario" placeholder="Precio ($)" required />
-  <button type="submit">Agregar al Inventario</button>
-</form>
+      <form class="formulario-inventario" id="form-inventario">
+        <input type="text" id="nombre" placeholder="Nombre del producto" required />
+        <input type="number" id="cantidad" placeholder="Cantidad" required />
+        <input type="number" id="precio" placeholder="Precio ($)" required />
+        <button type="submit">Agregar al Inventario</button>
+      </form>
     </section>
 
     <section class="tabla-section">
@@ -38,15 +35,7 @@
           </tr>
         </thead>
         <tbody>
-  @foreach($inventarios as $inv)
-    <tr>
-      <td>{{ $inv->producto->nombre }}</td>
-      <td>{{ $inv->stock }}</td>
-      <td>${{ number_format($inv->costo_producto_unitario, 0, ',', '.') }}</td>
-    </tr>
-  @endforeach
-</tbody>
-
+        </tbody>
       </table>
     </section>
 

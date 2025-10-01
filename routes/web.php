@@ -21,9 +21,6 @@ Route::get('/menu', function () {
 Route::get('/usuario', function () {
     return view('usuario');
 })->name('usuario');
-Route::get('/repartidor', function () {
-    return view('repartidor');
-})->name('repartidor');
 Route::get('/admin', function () {
     return view('admin');
 })->name('admin');
@@ -87,10 +84,12 @@ route::get('/404', function () {
 route::get('/505', function () {
     return view('505');
 })->name('505');
+Route::get('/repartidor', function () {
+    return view('repartidor');
+})->name('repartidor');
 
-Route::get('/inventario', [InventarioController::class, 'index'])->name('inventario');
+Route::get('/inventario', [InventarioController::class, 'showInventario'])->name('inventario');
 Route::post('/inventario', [InventarioController::class, 'store'])->name('inventario.store');
-
 
 Route::get('/register', [RegistroController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [RegistroController::class, 'store'])->name('register.store');
@@ -120,9 +119,6 @@ Route::middleware('auth:web')->group(function () {
 
 // Repartidor 
 Route::middleware('auth:repartidor')->group(function () {
-    Route::get('/repartidor', function () {
-        return view('repartidor');
-    })->name('repartidor');
 });
 
 //administrador

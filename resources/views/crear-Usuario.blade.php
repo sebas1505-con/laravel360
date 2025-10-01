@@ -58,10 +58,10 @@
       <label for="barrio">Barrio</label>
       <input type="text" id="barrio" name="Barrio" value="{{ old('Barrio') }}" placeholder="Ingresa tu barrio">
 
-      <button type="submit" onclick="alert('enviando...')">>Registrarse</button>
+      <button type="submit" onclick="alert('Creando su cuenta como Usuario')">>Registrarse</button>
     </form>
   </div>
-    <a href="{{ url('/login') }}" class="btn-volver-home">Volver</a>
+    <a href="{{ url('/menu') }}" class="btn-volver-home">Volver</a>
 
 </body>
 </html>

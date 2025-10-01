@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('contraseña');
             $table->string('telefono');
             $table->string('codigo');
-            $table->foreignId('fk_id_usuario')->references('id')->on('usuarios')->onDelete('cascade');
+            $table->foreignId('fk_id_usuario')->nullable()->constrained('usuarios')->onDelete('cascade');
             $table->timestamps();
         });
     }

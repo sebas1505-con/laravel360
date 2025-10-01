@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('inventarios', function (Blueprint $table) {
             $table->id();
             $table->date('stock');
-            $table->date('costo_producto_unitario');
+            $table->decimal('costo_producto_unitario', 10, 2);
             $table->string('estado_producto');
             $table->foreignId('fk_id_producto')->references('id')->on('productos')->onDelete('cascade');
             $table->foreignId('fk_id_administrador')->references('id')->on('administradores')->onDelete('cascade');
