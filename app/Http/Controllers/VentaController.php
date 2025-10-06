@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class VentaController extends Controller
 {
-    public function store(Request $request)
+public function store(Request $request)
 {
     $request->validate([
         'cantProducto' => 'required|integer|min:1',
@@ -25,19 +25,8 @@ class VentaController extends Controller
     if (!$usuario) {
         return redirect()->route('login')->with('error', 'Debes iniciar sesión para realizar la compra.');
     }
+
     $usuarioId = $usuario->id;
-
-    $pedidoExistente = Venta::where('fk_id_cliente', $usuarioId)
-        ->whereDate('Fecha_de_venta', now()->toDateString())
-        ->first();
-
-    if ($pedidoExistente) {
-        // Vaciar carrito
-        $request->session()->forget('carrito');
-
-        // Redirigir de vuelta con alerta
-        return redirect()->back()->with('success', '¡Ya se hizo tu pedido!');
-    }
 
     Venta::create([
         'cantProducto' => $request->cantProducto,
@@ -50,9 +39,17 @@ class VentaController extends Controller
 
     $request->session()->forget('carrito');
 
-    // Redirigir de vuelta con alerta de éxito
+    // Redirigir al menú principal (ajusta el nombre de la ruta según tu app)
     return redirect()->route('usuario')->with('success', 'Compra realizada correctamente.');
+}
 
+
+
+public function detalle($id)
+{
+    $venta = \App\Models\Venta::with('envio.repartidor')->findOrFail($id);
+
+    return view('ventas.detalle', compact('venta'));
 }
 
 }

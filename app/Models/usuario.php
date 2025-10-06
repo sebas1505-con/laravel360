@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace app\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class Usuario extends Authenticatable
+class usuario extends Authenticatable
 {
     use HasFactory, Notifiable;
 

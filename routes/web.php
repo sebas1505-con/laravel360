@@ -8,6 +8,9 @@ use App\Http\Controllers\VentaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InventarioController;
 use Illuminate\Container\Attributes\Auth;
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\PedidoController;
+
 
 Route::get('/', function () {
     return view('welcome'); 
@@ -18,9 +21,6 @@ Route::get('/welcome', function () {
 Route::get('/menu', function () {
     return view('menu'); 
 });
-Route::get('/usuario', function () {
-    return view('usuario');
-})->name('usuario');
 Route::get('/admin', function () {
     return view('admin');
 })->name('admin');
@@ -98,6 +98,7 @@ Route::post('/register-repartidor', [RepartidorController::class, 'store'])->nam
 
 Route::post('/guardar-venta', [VentaController::class, 'store'])->name('guardar.venta');
 Route::post('/ventas', [VentaController::class, 'store'])->name('ventas.store');
+Route::get('/ventas/{id}', [ClienteController::class, 'show'])->name('cliente.show');
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
@@ -115,10 +116,23 @@ Route::middleware('auth:web')->group(function () {
     Route::get('/admin', function () {
         return view('admin');
     })->name('admin');
+    Route::get('/detalle-pedido/{id}', [VentaController::class, 'detalle'])->name('detalle.pedido');
+
+Route::get('/usuario', [ClienteController::class, 'index'])->name('cliente.index');
+
+Route::get('/usuario', [ClienteController::class, 'index'])->name('usuario');
+    Route::get('/detalle-pedido/{id}', [VentaController::class, 'detalle'])->name('detalle.pedido');
+
+
 });
 
-// Repartidor 
+// Repartidor
 Route::middleware('auth:repartidor')->group(function () {
+    Route::get('/repartidor', [RepartidorController::class, 'index'])->name('repartidor.index');
+    Route::post('/repartidor/tomar/{id}', [RepartidorController::class, 'tomarPedido'])->name('repartidor.tomar');
+
+    // ✅ Agregar logout con nombre correcto
+    Route::post('/repartidor/logout', [RepartidorController::class, 'logout'])->name('repartidor.logout');
 });
 
 //administrador
@@ -130,4 +144,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/ventas/create', [VentaController::class, 'create'])->name('ventas.create');
     Route::post('/ventas', [VentaController::class, 'store'])->name('ventas.store');
 });
+
+Route::get('/pedidos', [PedidoController::class, 'index'])->name('pedidos.index');
 

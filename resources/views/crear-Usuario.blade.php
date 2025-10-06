@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulario de Registro</title>
+  <title>Registro de Cliente</title>
+  <link rel="stylesheet" href="{{ asset('css/alerts.css') }}">
   <link rel="stylesheet" href="{{ asset('css/style-crear.css') }}">
 </head>
 <body>
   <div class="login-container">
     <div class="login-header">
-      <h2>Formulario de Registro</h2>
+      <h2>Registro de Cliente</h2>
     </div>
 
-    {{-- Mostrar errores de validación --}}
     @if ($errors->any())
       <div class="alert">
         <ul>
@@ -22,11 +22,6 @@
         </ul>
       </div>
     @endif
-    @if(session('success'))
-    <script>
-        alert('{{ session('success') }}');
-    </script>
-@endif
 
     <form class="login-form" action="{{ route('register.store') }}" method="POST">
       @csrf
@@ -50,7 +45,7 @@
       <input type="tel" id="telefono" name="useTelefono" value="{{ old('useTelefono') }}" placeholder="+57 300 000 0000">
 
       <label for="direccion">Dirección</label>
-      <input type="text" id="direccion" name="Direccion" value="{{ old('Direccion') }}" placeholder="Ingresa tu dirección">    
+      <input type="text" id="direccion" name="Direccion" value="{{ old('Direccion') }}" placeholder="Ingresa tu dirección">
 
       <label for="fecha">Fecha de nacimiento</label>
       <input type="date" id="fecha" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') }}">
@@ -58,13 +53,10 @@
       <label for="barrio">Barrio</label>
       <input type="text" id="barrio" name="Barrio" value="{{ old('Barrio') }}" placeholder="Ingresa tu barrio">
 
-      <button type="submit" onclick="alert('Creando su cuenta como Usuario')">>Registrarse</button>
+      <button type="submit" onclick="alert('Creando su cuenta como Usuario')">Registrarse</button>
     </form>
   </div>
-    <a href="{{ url('/menu') }}" class="btn-volver-home">Volver</a>
-
+  <a href="{{ url('/menu') }}" class="btn-volver-home">Volver</a>
+  <script src="{{ asset('js/alerts.js') }}"></script>
 </body>
 </html>
-
-
-

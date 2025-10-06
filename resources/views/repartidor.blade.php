@@ -20,7 +20,10 @@
         <a class="btn" href="{{'/usuario'}}">Inicio</a>
         <a class="btn" href="{{'/pedidos'}}">Pedidos Pendientes</a>
         <a class="btn" href="#">Historial de Entregas</a>
-        <a class="btn" href="{{'/login'}}">Cerrar Sesión</a>
+        <form action="{{ route('repartidor.logout') }}" method="POST" style="display:inline;">
+            @csrf
+            <button class="btn" type="submit">Cerrar Sesión</button>
+        </form>
       </nav>
     </div>
 
@@ -31,6 +34,18 @@
 
     <div class="card">
       <h2>Pedidos Pendientes</h2>
+
+      @if(session('success'))
+        <div style="color: green; margin-bottom: 10px;">
+            {{ session('success') }}
+        </div>
+      @endif
+      @if(session('error'))
+        <div style="color: red; margin-bottom: 10px;">
+            {{ session('error') }}
+        </div>
+      @endif
+
       <table class="table">
         <thead>
           <tr>
@@ -42,13 +57,24 @@
           </tr>
         </thead>
         <tbody>
+          @forelse($ventasPendientes as $venta)
           <tr>
-            <td>#023</td>
-            <td>Laura Torres</td>
-            <td>Carrera 9 #45-32</td>
-            <td>312 555 8899</td>
-            <td><button class="btn">Entregado</button></td>
+            <td>#{{ $venta->id }}</td>
+            <td>{{ $venta->cliente->name ?? 'Sin nombre' }}</td>
+            <td>{{ $venta->cliente->Direccion ?? 'Sin dirección' }}</td>
+            <td>{{ $venta->cliente->useTelefono ?? 'Sin teléfono' }}</td>
+           <td>
+              <form action="{{ route('repartidor.tomar', $venta->id) }}" method="POST">
+                @csrf
+                <button class="btn" type="submit">Tomar pedido</button>
+              </form>
+            </td>
           </tr>
+          @empty
+          <tr>
+            <td colspan="5" style="text-align:center;">No hay pedidos pendientes.</td>
+          </tr>
+          @endforelse
         </tbody>
       </table>
     </div>

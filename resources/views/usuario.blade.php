@@ -1,5 +1,4 @@
 <?php
-// inicio session
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -11,6 +10,49 @@
   <link rel="stylesheet" href="css/index.css" />
 </head>
 <body>
+
+@if(session('success'))
+  <script>
+      alert('{{ session('success') }}');
+  </script>
+@endif
+
+  
+<div style="display:none;">
+    <h2>Mis Pedidos</h2>
+
+    @if($ventas->isEmpty())
+        <p>No tienes pedidos aún.</p>
+    @endif
+
+    @foreach($ventas as $venta)
+        <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
+            <p><strong>Pedido #{{ $venta->id }}</strong></p>
+            <p><strong>Fecha:</strong> {{ $venta->Fecha_de_venta }}</p>
+            <p><strong>Total:</strong> ${{ $venta->totalVenta }}</p>
+
+            <button type="button" onclick="mostrarDetalle({{ $venta->id }})">Ver Detalle</button>
+
+            <div id="detalle-{{ $venta->id }}" style="display:none; margin-top:10px;">
+                @if($venta->envio && $venta->envio->repartidor)
+                    <p><strong>Repartidor:</strong> {{ $venta->envio->repartidor->NombreRepar }}</p>
+                    <p><strong>Vehículo:</strong> {{ $venta->envio->repartidor->tipodevehi }}</p>
+                    <p><strong>Placa:</strong> {{ $venta->envio->repartidor->numplaca }}</p>
+                @else
+                    <p>Aún no se ha asignado un repartidor.</p>
+                @endif
+            </div>
+        </div>
+    @endforeach
+</div>
+
+<script>
+function mostrarDetalle(id) {
+    let detalle = document.getElementById("detalle-" + id);
+    if (!detalle) return;
+    detalle.style.display = detalle.style.display === "none" ? "block" : "none";
+}
+</script>
 
   <header class="header">   
     <div class="container">
@@ -25,7 +67,8 @@
             <li><a href="{{'/'}}">Inicio</a></li>
             <li><a href="{{'/menu'}}">Catálogo</a></li>
             <li><a href="{{'/quienes'}}">Quienes somos</a></li>
-            <li><a href="{{'/login'}}">cerrar Sesion</a></li>
+            <li><a href="{{'/pedidos'}}">Mis Pedidos</a></li>
+            <li><a href="{{'/login'}}">cerrar Sesión</a></li>
           
           </ul>
         </nav>
@@ -138,6 +181,20 @@
       </ul>
     </div>
   </footer>
+
+<script>
+function mostrarDetalle(id) {
+    console.log("Mostrar detalle de venta:", id); // Verifica que se está llamando
+    let detalle = document.getElementById("detalle-" + id);
+    if (!detalle) {
+        console.log("No se encontró el div:", "detalle-" + id);
+        return;
+    }
+    // Alternar entre oculto y visible
+    detalle.style.display = detalle.style.display === "none" ? "block" : "none";
+}
+</script>
+
 
 </body>
 </html>

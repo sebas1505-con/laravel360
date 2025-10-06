@@ -4,79 +4,40 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Repartidor;
+use App\Models\Usuario;
+use App\Models\Venta;
+use App\Models\Envio;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Models\Usuario;
-use Illuminate\Routing\Controller;
 
 class RepartidorController extends Controller
 {
-    public function create()
-{
-    $usuarios = Usuario::all(); 
-    return view('Crear-Repartidor', compact('usuarios'));
-}
-    public function showRegisterForm()
+    public function index()
     {
-        return view('crear-repartidor'); 
+        // Pedidos pendientes (sin envío)
+        $ventasPendientes = Venta::doesntHave('envio')->with('cliente')->get();
+        return view('repartidor', compact('ventasPendientes'));
     }
 
-    public function store(Request $request)
+    public function tomarPedido($ventaId)
     {
-        $request->validate([
-            'nombre'     => 'required|string|max:255',
-            'correo'     => 'required|email|unique:repartidores,useCorreo',
-            'usuario'    => 'required|string|max:50|unique:repartidores,Usuario',
-            'contrasena' => 'required|string|min:6|confirmed',
-            'telefono'   => 'nullable|string|max:20',
-            'vehiculo'   => 'nullable|string|max:50',
-            'fecha'      => 'nullable|date',
-            'placa' => 'required|string|max:20',
-            'fk_id_usuario' => 'nullable|exists:usuarios,id',
-        ]);
+        $repartidor = Auth::user(); // repartidor logueado
 
-        Repartidor::create([
-        'NombreRepar'   => $request->input('nombre'),
-        'useCorreo'     => $request->input('correo'),
-        'repTelefono'   => $request->input('telefono'),
-        'tipodevehi'    => $request->input('vehiculo'),
-        'numplaca'      => $request->input('placa'),
-        'Usuario'       => $request->input('usuario'),
-        'contraseña'    => bcrypt($request->input('contrasena')),
-        'fk_id_usuario' => $request->fk_id_usuario ?: null, 
-]);
+        $venta = Venta::findOrFail($ventaId);
 
-
-
-
-        return redirect('/login')
-            ->with('success', 'Registro exitoso. ¡Ahora puedes iniciar sesión!');
-    }
-
-    // Mostrar formulario de login
-    public function showLoginForm()
-    {
-        return view('/login'); 
-    }
-
-    public function login(Request $request)
-    {
-        $credentials = $request->validate([
-            'email'     => 'required|email',
-            'password' => 'required|string',
-        ]);
-
-        $user = Repartidor::where('useCorreo', $credentials['email'])->first();
-
-        if ($user && Hash::check($credentials['password'], $user->contraseña)) { 
-            Auth::login($user);
-            return redirect('/repartidor')
-                ->with('success', 'Bienvenido ' . $user->NombreRepar);
+        if ($venta->envio) {
+            return redirect()->back()->with('error', 'Este pedido ya tiene repartidor asignado.');
         }
 
-        return back()->withErrors([
-            'email' => 'Credenciales incorrectas.',
+        Envio::create([
+            'fk_id_venta'     => $ventaId,
+            'fk_id_repartidor'=> $repartidor->id,
+            'estadoEnvio'     => 'En camino',
+            'fechaEnvio'      => now(),
+            'metodoEnvio'     => $repartidor->tipodevehi ?? 'Motocicleta',
         ]);
+
+        return redirect()->route('repartidor.index')->with('success', 'Pedido tomado correctamente.');
     }
 
     public function logout(Request $request)
@@ -84,10 +45,6 @@ class RepartidorController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-
-        return redirect('/login')
-            ->with('success', 'Sesión cerrada correctamente.');
+        return redirect('/login');
     }
 }
-
-
