@@ -162,4 +162,157 @@ body {
   font-size: 14px;
   color: #555;
 }
+/* ---------------------------
+   Tabla: Gestión de Usuarios
+   --------------------------- */
+
+/* Contenedor general */
+.usuarios {
+  margin: 24px 20px;
+  background: #ffffff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Título */
+.usuarios h2 {
+  margin: 0 0 12px 0;
+  font-size: 20px;
+  color: #0f172a;
+  letter-spacing: -0.2px;
+}
+
+/* Tabla */
+.tabla-usuarios {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #fff, #fafafa);
+}
+
+/* Encabezado */
+.tabla-usuarios thead th {
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #d10206; /* azul */
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Filas y celdas */
+.tabla-usuarios tbody tr {
+  transition: background 0.15s ease;
+  border-bottom: 1px solid #eef2f6;
+}
+
+.tabla-usuarios tbody tr:hover {
+  background: #f4fbff;
+}
+
+.tabla-usuarios td {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #081125;
+  vertical-align: middle;
+}
+
+/* Centrar ID y acciones */
+.tabla-usuarios td:nth-child(1),
+.tabla-usuarios td:last-child {
+  text-align: center;
+}
+
+/* Placeholder visual cuando falta el nombre */
+.tabla-usuarios .empty-name {
+  color: #9aa6b2;
+  font-style: italic;
+}
+
+/* Botón eliminar */
+.btn-eliminar {
+  background: linear-gradient(180deg,#ef5350,#e53935);
+  color: #fff;
+  border: 0;
+  padding: 8px 12px;
+  font-size: 13px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(229,57,53,0.18);
+  transition: transform .09s ease, box-shadow .09s ease, opacity .09s ease;
+}
+
+.btn-eliminar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(229,57,53,0.22);
+}
+
+/* Small text for role */
+.role-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 999px;
+  background: #eef7ff;
+  color: #8c050a;
+  font-weight: 600;
+}
+
+/* Mensajes (success / error) */
+.alerta {
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.alerta.success {
+  background: #e6f8ed;
+  color: #1b6b2b;
+}
+
+.alerta.error {
+  background: #fff0f0;
+  color: #9b2c2c;
+}
+
+/* Responsive: versión móvil (apila las columnas) */
+@media (max-width: 820px) {
+  .tabla-usuarios thead { display: none; }
+
+  .tabla-usuarios, .tabla-usuarios tbody, .tabla-usuarios tr, .tabla-usuarios td {
+    display: block;
+    width: 100%;
+  }
+
+  .tabla-usuarios tr {
+    margin-bottom: 12px;
+    border-radius: 10px;
+    box-shadow: 0 6px 14px rgba(9,30,66,0.04);
+    padding: 12px;
+  }
+
+  .tabla-usuarios td {
+    padding: 8px 12px;
+    text-align: left;
+    position: relative;
+  }
+
+  /* Etiqueta antes del valor para cada celda (ID, Nombre, Correo, Rol, Acciones) */
+  .tabla-usuarios td:before {
+    content: attr(data-label);
+    display: inline-block;
+    font-weight: 700;
+    width: 110px;
+    color: #324152;
+  }
+
+  .tabla-usuarios td:last-child {
+    text-align: right;
+  }
+}
 

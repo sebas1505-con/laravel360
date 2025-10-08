@@ -106,44 +106,36 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 route::post('/administradores',[AdminController::class,'store'])->name('administradores.store');
 
-
 // Usuario 
 Route::middleware('auth:web')->group(function () {
     Route::get('/usuario', function () {
         return view('usuario');
     })->name('usuario');
-
     Route::get('/admin', function () {
         return view('admin');
     })->name('admin');
-    Route::get('/detalle-pedido/{id}', [VentaController::class, 'detalle'])->name('detalle.pedido');
-
+Route::get('/detalle-pedido/{id}', [VentaController::class, 'detalle'])->name('detalle.pedido');
 Route::get('/usuario', [ClienteController::class, 'index'])->name('cliente.index');
-
 Route::get('/usuario', [ClienteController::class, 'index'])->name('usuario');
-    Route::get('/detalle-pedido/{id}', [VentaController::class, 'detalle'])->name('detalle.pedido');
-
-
+Route::get('/detalle-pedido/{id}', [VentaController::class, 'detalle'])->name('detalle.pedido');
 });
 
 // Repartidor
 Route::middleware('auth:repartidor')->group(function () {
-    Route::get('/repartidor', [RepartidorController::class, 'index'])->name('repartidor.index');
-    Route::post('/repartidor/tomar/{id}', [RepartidorController::class, 'tomarPedido'])->name('repartidor.tomar');
-
-    // ✅ Agregar logout con nombre correcto
-    Route::post('/repartidor/logout', [RepartidorController::class, 'logout'])->name('repartidor.logout');
+Route::get('/repartidor', [RepartidorController::class, 'index'])->name('repartidor');
+Route::post('/repartidor/tomar/{id}', [RepartidorController::class, 'tomarPedido'])->name('repartidor.tomar');
+Route::post('/repartidor/logout', [RepartidorController::class, 'logout'])->name('repartidor.logout');
 });
 
 //administrador
-Route::get('/admin', function () {
-    return view('admin');
-})->name('admin');
-
+Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 Route::middleware(['auth'])->group(function () {
-    Route::get('/ventas/create', [VentaController::class, 'create'])->name('ventas.create');
-    Route::post('/ventas', [VentaController::class, 'store'])->name('ventas.store');
+Route::get('/ventas/create', [VentaController::class, 'create'])->name('ventas.create');
+Route::post('/ventas', [VentaController::class, 'store'])->name('ventas.store');
+Route::delete('/usuarios/{id}', [AdminController::class, 'eliminarUsuario'])->name('usuarios.eliminar');
 });
 
 Route::get('/pedidos', [PedidoController::class, 'index'])->name('pedidos.index');
+
+
 

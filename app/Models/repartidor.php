@@ -1,13 +1,12 @@
 <?php
 
-namespace app\Models;
+namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class repartidor extends Authenticatable
+class Repartidor extends Authenticatable
 {
     protected $table = 'repartidores';
-
     protected $fillable = [
         'NombreRepar',
         'useCorreo',
@@ -19,13 +18,10 @@ class repartidor extends Authenticatable
         'fk_id_usuario',
     ];
 
-    protected $hidden = [
-        'contraseña', // asegúrate de usar el nombre real de tu campo
-    ];
+    protected $hidden = ['contraseña'];
 
-    // Relación con envíos
     public function envios()
     {
-        return $this->hasMany(envio::class, 'fk_id_repartidor');
+        return $this->hasMany(Envio::class, 'fk_id_repartidor');
     }
 }

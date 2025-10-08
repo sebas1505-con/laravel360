@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Administrador;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Usuario;
 
 class adminController extends Controller
 {
@@ -29,4 +30,32 @@ class adminController extends Controller
 
         return redirect()->route('login')->with('success', 'Administrador registrado correctamente');
     }
+    public function eliminarUsuario($id)
+    {
+    try {
+        $usuario = \App\Models\Usuario::findOrFail($id);
+        $usuario->delete();
+
+        return redirect()->back()->with('success', 'Usuario eliminado correctamente ✅');
+    }   catch (\Exception $e) {
+        return redirect()->back()->with('error', 'Error al eliminar el usuario ❌');
+    }
+    }
+    public function index()
+    {
+        $usuarios = Usuario::all();
+
+        return view('admin', compact('usuarios'));
+    }
+
+    public function eliminar($id)
+    {
+        $usuario = Usuario::findOrFail($id);
+        $usuario->delete();
+
+        return redirect()->route('admin')->with('success', 'Usuario eliminado correctamente');
+    }
+
+
+    
 }

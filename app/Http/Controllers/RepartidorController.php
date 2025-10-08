@@ -19,26 +19,34 @@ class RepartidorController extends Controller
         return view('repartidor', compact('ventasPendientes'));
     }
 
-    public function tomarPedido($ventaId)
-    {
-        $repartidor = Auth::user(); // repartidor logueado
+    public function store(Request $request)
+{
+    // Validar los datos
+    $validated = $request->validate([
+        'nombre' => 'required|string|max:255',
+        'correo' => 'required|email|unique:repartidores,useCorreo',
+        'usuario' => 'required|string|max:50|unique:repartidores,Usuario',
+        'contrasena' => 'required|string|min:6|confirmed',
+        'placa' => 'required|string|max:10',
+        'telefono' => 'required|string|max:20',
+        'vehiculo' => 'required|string',
+        'fecha' => 'nullable|date',
+    ]);
 
-        $venta = Venta::findOrFail($ventaId);
+    // Crear el repartidor
+    $repartidor = new \App\Models\Repartidor();
+    $repartidor->NombreRepar = $validated['nombre'];
+    $repartidor->useCorreo = $validated['correo'];
+    $repartidor->Usuario = $validated['usuario'];
+    $repartidor->contraseña = Hash::make($validated['contrasena']);
+    $repartidor->repTelefono = $validated['telefono'];
+    $repartidor->tipodevehi = $validated['vehiculo'];
+    $repartidor->numplaca = $validated['placa'];
+    $repartidor->fk_id_usuario = null; // opcional si tienes relación
 
-        if ($venta->envio) {
-            return redirect()->back()->with('error', 'Este pedido ya tiene repartidor asignado.');
-        }
-
-        Envio::create([
-            'fk_id_venta'     => $ventaId,
-            'fk_id_repartidor'=> $repartidor->id,
-            'estadoEnvio'     => 'En camino',
-            'fechaEnvio'      => now(),
-            'metodoEnvio'     => $repartidor->tipodevehi ?? 'Motocicleta',
-        ]);
-
-        return redirect()->route('repartidor.index')->with('success', 'Pedido tomado correctamente.');
-    }
+    $repartidor->save();
+    return redirect()->route('repartidor.index')->with('success', 'Pedido tomado correctamente.');
+}
 
     public function logout(Request $request)
     {
